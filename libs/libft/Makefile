@@ -6,7 +6,7 @@
 #    By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 16:37:12 by shinfray          #+#    #+#              #
-#    Updated: 2023/01/29 23:41:36 by shinfray         ###   ########.fr        #
+#    Updated: 2023/06/15 11:56:02 by shinfray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,7 @@ ${NAME}: ${OBJS}
 
 ${BUILD_DIR}/%.o: %.c
 	mkdir -p $(dir $@)
-	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+	${CC} ${CPPFLAGS} ${CFLAGS} -c $< -o $@
 
 clean:
 	${RM} ${BUILD_DIR}
