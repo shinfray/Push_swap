@@ -12,7 +12,14 @@
 
 #include "push_swap.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
+	t_dllist	*dllist;
+
+	if (argc < 2)
+	{
+		ft_putendl_fd("Error", STDERR_FILENO);
+		exit(EXIT_FAILURE);
+	}
 	return (0);
 }

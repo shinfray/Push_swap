@@ -17,7 +17,8 @@ NAME:=	push_swap
 BUILD_DIR:= build
 SRCS_DIR:= srcs
 
-SRCS_PUSH_SWAP:=	main.c
+SRCS_PUSH_SWAP:=	main.c \
+					dllist.c
 
 SRCS:=	${addprefix ${SRCS_DIR}/,${SRCS_PUSH_SWAP}}
 
