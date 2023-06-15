@@ -6,7 +6,7 @@
 #    By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 16:37:12 by shinfray          #+#    #+#              #
-#    Updated: 2023/06/15 11:56:02 by shinfray         ###   ########.fr        #
+#    Updated: 2023/06/15 13:30:14 by shinfray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ OBJS:=	${SRCS:%.c=${BUILD_DIR}/%.o}
 
 DEPS:=	${OBJS:.o=.d}
 
-CFLAGS:= -Wall -Wextra -Werror
+CFLAGS:= -Wall -Wextra -Werror -Wpedantic
 
 ROOT_INC_DIRS:= includes
 INC_DIRS:= ${shell find ${ROOT_INC_DIRS} -type d}
