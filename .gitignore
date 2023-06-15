@@ -1,0 +1,5 @@
+**/*.d
+**/*.o
+**/*.a
+**/build
+push_swap
