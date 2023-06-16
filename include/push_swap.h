@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:06:36 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/16 10:06:12 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/16 16:23:01 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,10 @@ t_dllist_node	*ft_dllist_prepend(t_dllist *dllist, int value);
 t_dllist_node	*ft_dllist_append(t_dllist *dllist, int value);
 t_dllist_node 	*ft_dllist_next(t_dllist_node *node);
 t_dllist_node	*ft_dllist_prev(t_dllist_node *node);
+
+/*  PARSE FUNCTIONS    */
+t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv);
+int			ft_atoi_ps(const char *str, bool *error_status);
+bool		ft_is_duplicate_number(t_dllist *dllist, int n);
 
 #endif
