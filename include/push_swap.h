@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:06:36 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/16 16:23:01 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/16 16:49:51 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct dllist_node
 typedef struct dllist
 {
     t_dllist_node   *sentinel_node;
+	size_t			total_nodes;
 }               t_dllist;
 
 /*  DLLIST FUNCTIONS    */
