@@ -44,7 +44,7 @@ RM:=	rm -rf
 all: ${NAME}
 
 ${NAME}: ${OBJS} ${LIBFT}
-	${CC} ${LDFLAGS} ${OBJS} ${LDLIBS} -o $@
+	${CC} ${LDFLAGS} ${OBJS} ${LDLIBS} -o $@ -fsanitize=address
 
 ${LIBFT}:
 	${MAKE} -C ${dir ${LIBFT}}

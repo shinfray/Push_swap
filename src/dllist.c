@@ -51,7 +51,8 @@ bool	ft_dllist_is_empty(t_dllist *dllist)
 
 void	ft_dllist_delete_node(t_dllist_node *node)
 {
-	ft_dllist_prev(node)->next = ft_dllist_next(node)->prev;
+	ft_dllist_prev(node)->next = ft_dllist_next(node);
+	ft_dllist_next(node)->prev = ft_dllist_prev(node);
 	free(node);
 }
 

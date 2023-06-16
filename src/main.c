@@ -22,7 +22,8 @@ int	main(int argc, char **argv)
 {
 	t_dllist	*stack_a;
 	t_dllist	*stack_b;
-	t_dllist_node	*temp;
+	t_dllist_node	*temp_a;
+	t_dllist_node	*temp_b;
 
 	if (argc < 2)
 	{
@@ -34,13 +35,24 @@ int	main(int argc, char **argv)
 	{
 		ft_free_dllist(stack_a);
 		ft_free_dllist(stack_b);
+		ft_putendl_fd("Error", STDERR_FILENO);
 		exit(3);
 	}
-	temp = ft_dllist_first(stack_a);
-	while (temp != stack_a->sentinel_node)
+
+
+	temp_a = ft_dllist_first(stack_a);
+	temp_b = ft_dllist_first(stack_b);
+	printf("stack a:\n");
+	while (temp_a != stack_a->sentinel_node)
 	{
-		printf("%d\n", temp->val);
-		temp = ft_dllist_next(temp);
+		printf("%d\n", temp_a->val);
+		temp_a = ft_dllist_next(temp_a);
+	}
+	printf("stack b:\n");
+	while (temp_b != stack_b->sentinel_node)
+	{
+		printf("%d\n", temp_b->val);
+		temp_b = ft_dllist_next(temp_b);
 	}
 	return (0);
 }
