@@ -17,10 +17,12 @@ NAME:=	push_swap
 BUILD_DIR:= build
 SRCS_DIR:= src
 
-SRCS_PUSH_SWAP:=	main.c \
-					dllist.c
+EXT:=	.c
 
-SRCS:=	${addprefix ${SRCS_DIR}/,${SRCS_PUSH_SWAP}}
+SRCS_PUSH_SWAP:=	main \
+					dllist
+
+SRCS:=	${addprefix ${SRCS_DIR}/,${addsuffix ${EXT},${SRCS_PUSH_SWAP}}}
 
 OBJS:=	${SRCS:%.c=${BUILD_DIR}/%.o}
 
