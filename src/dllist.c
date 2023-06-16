@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 t_dllist	    *ft_new_dllist(void);
 bool	        ft_dllist_is_empty(t_dllist *dllist);

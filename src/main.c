@@ -11,19 +11,16 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-#include <limits.h>
 
-static void	ft_initialize_stacks(t_dllist **stack_a, t_dllist **stack_b);
+static void		ft_initialize_stacks(t_dllist **stack_a, t_dllist **stack_b);
 static t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv);
-int	ft_atoi_ps(const char *str, bool *error_status);
+static int		ft_atoi_ps(const char *str, bool *error_status);
+static void		ft_print_stack(t_dllist *stack_a, t_dllist *stack_b);
 
 int	main(int argc, char **argv)
 {
 	t_dllist	*stack_a;
 	t_dllist	*stack_b;
-	t_dllist_node	*temp_a;
-	t_dllist_node	*temp_b;
 
 	if (argc < 2)
 	{
@@ -39,6 +36,15 @@ int	main(int argc, char **argv)
 		exit(3);
 	}
 
+	ft_print_stack(stack_a, stack_b);
+
+	return (0);
+}
+
+static void	ft_print_stack(t_dllist *stack_a, t_dllist *stack_b)
+{
+	t_dllist_node	*temp_a;
+	t_dllist_node	*temp_b;
 
 	temp_a = ft_dllist_first(stack_a);
 	temp_b = ft_dllist_first(stack_b);
@@ -54,7 +60,6 @@ int	main(int argc, char **argv)
 		printf("%d\n", temp_b->val);
 		temp_b = ft_dllist_next(temp_b);
 	}
-	return (0);
 }
 
 static void	ft_initialize_stacks(t_dllist **stack_a, t_dllist **stack_b)
@@ -86,7 +91,7 @@ static t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv)
 	return (dllist);
 }
 
-int	ft_atoi_ps(const char *str, bool *error_status)
+static int	ft_atoi_ps(const char *str, bool *error_status)
 {
 	long int		n;
 	int				sign;

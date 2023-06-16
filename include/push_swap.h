@@ -13,9 +13,13 @@
 #ifndef PUSH_SWAP
 # define PUSH_SWAP
 
+# include <limits.h>
 # include <stdbool.h>
 # include <stdlib.h>
 # include "libft.h"
+
+/*  to remove   */
+#include <stdio.h>
 
 typedef struct dllist_node
 {
