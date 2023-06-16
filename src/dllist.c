@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 t_dllist	    *ft_new_dllist(void);
 bool	        ft_dllist_is_empty(t_dllist *dllist);
@@ -29,7 +30,7 @@ t_dllist	*ft_new_dllist(void)
 	t_dllist_node	*node;
 
 	dllist = ft_calloc(1, sizeof(*dllist));
-	if (dllist != NULL)
+	if (dllist == NULL)
 		return (NULL);
 	node = ft_calloc(1, sizeof(*node));
 	if (node == NULL)
