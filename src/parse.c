@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:04:24 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 14:25:23 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/17 14:46:50 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv)
 	bool	status_ft_atoi_ps;
 	int		temp;
 	int		i;
-	
+
 	i = 1;
 	while (argc-- > 1)
 	{
@@ -49,7 +49,7 @@ int	ft_atoi_push_swap(const char *str, bool *error_status)
 	{
 		n = n * 10 + *str - '0';
 		if (n > (long int)INT_MAX + 1)
-			break;
+			break ;
 		++str;
 	}
 	n *= sign;

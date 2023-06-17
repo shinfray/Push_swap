@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:03:44 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 12:04:42 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/17 14:48:12 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ static void	ft_p(t_dllist *stack_to_push, t_dllist *stack_to_pop)
 
 	first_node_stack_to_pop = ft_dllist_first(stack_to_pop);
 	second_node_stack_to_pop = ft_dllist_next(first_node_stack_to_pop);
-	first_node_stack_to_push = ft_dllist_first(stack_to_push) ;
-
+	first_node_stack_to_push = ft_dllist_first(stack_to_push);
 	first_node_stack_to_pop->prev = stack_to_push->sentinel_node;
 	first_node_stack_to_pop->next = first_node_stack_to_push;
 	stack_to_pop->sentinel_node->next = second_node_stack_to_pop;
