@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:04:24 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 14:46:50 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/17 15:17:53 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ static bool	ft_is_duplicate_number(t_dllist *dllist, int n);
 
 t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv)
 {
-	bool	status_ft_atoi_ps;
+	bool	status_ft_atoi_push_swap;
 	int		temp;
 	int		i;
 
 	i = 1;
 	while (argc-- > 1)
 	{
-		temp = ft_atoi_push_swap(argv[i++], &status_ft_atoi_ps);
-		if (status_ft_atoi_ps == EXIT_FAILURE \
+		temp = ft_atoi_push_swap(argv[i++], &status_ft_atoi_push_swap);
+		if (status_ft_atoi_push_swap == EXIT_FAILURE \
 			|| ft_is_duplicate_number(dllist, temp) == true \
 			|| ft_dllist_append(dllist, temp) == NULL)
 			return (NULL);

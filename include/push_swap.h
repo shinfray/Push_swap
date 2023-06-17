@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:55:25 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 15:04:51 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/17 15:21:46 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <limits.h>
 # include <stdbool.h>
-# include <stdlib.h>
 # include "libft.h"
 
 typedef struct dllist_node
@@ -49,7 +48,7 @@ t_dllist		*ft_new_dllist(void);
 void			ft_free_dllist(t_dllist *dllist);
 bool			ft_dllist_is_empty(t_dllist *dllist);
 /*	DLLIST_INSERTION	*/
-t_dllist_node	*ft_dllist_append(t_dllist *dllist, int value);
+t_dllist_node	*ft_dllist_append(t_dllist *dllist, int val);
 
 /*
  *	MOVES FUNCTIONS
