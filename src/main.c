@@ -6,40 +6,52 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:05:55 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 11:26:36 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/17 12:55:19 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void		ft_initialize_stacks(t_dllist **stack_a, t_dllist **stack_b);
+static int		ft_initialize_stacks(t_dllist **stack_a, t_dllist **stack_b);
 static void		ft_print_stack(t_dllist *stack_a, t_dllist *stack_b);
+static int		ft_exit_on_error(void);
+
+static int	ft_exit_on_error(void)
+{
+	ft_putendl_fd("Error", STDERR_FILENO);
+	return (EXIT_FAILURE);
+}
 
 int	main(int argc, char **argv)
 {
 	t_dllist	*stack_a;
 	t_dllist	*stack_b;
 
-	if (argc < 2)
-	{
-		ft_putendl_fd("Error", STDERR_FILENO);
-		exit(2);
-	}
-	ft_initialize_stacks(&stack_a, &stack_b);
+	if (argc < 2 || ft_initialize_stacks(&stack_a, &stack_b) == -1);
+		return (ft_exit_on_error);
 	if (ft_retrieve_args(stack_a, argc, argv) == NULL)
 	{
 		ft_free_dllist(stack_a);
 		ft_free_dllist(stack_b);
-		ft_putendl_fd("Error", STDERR_FILENO);
-		exit(3);
+		return (ft_exit_on_error);
 	}
 
 	ft_print_stack(stack_a, stack_b);
-	printf("total node a %zu\n", stack_a->total_nodes);
-	printf("total node b %zu\n", stack_b->total_nodes);
-	ft_pb(stack_a, stack_b);
-	ft_print_stack(stack_a, stack_b);
-
+	// printf("total node a %zu\n", stack_a->total_nodes);
+	// printf("total node b %zu\n", stack_b->total_nodes);
+	// ft_sa(stack_a, stack_b);
+	// ft_pb(stack_a, stack_b);
+	// ft_pb(stack_a, stack_b);
+	// ft_pb(stack_a, stack_b);
+	// ft_rr(stack_a, stack_b);
+	// ft_rrr(stack_a, stack_b);
+	// ft_sa(stack_a, stack_b);
+	// ft_pa(stack_a, stack_b);
+	// ft_pa(stack_a, stack_b);
+	// ft_pa(stack_a, stack_b);
+	// ft_print_stack(stack_a, stack_b);
+	ft_free_dllist(stack_a);
+	ft_free_dllist(stack_b);
 	return (0);
 }
 
@@ -64,15 +76,16 @@ static void	ft_print_stack(t_dllist *stack_a, t_dllist *stack_b)
 	}
 }
 
-static void	ft_initialize_stacks(t_dllist **stack_a, t_dllist **stack_b)
+static int	ft_initialize_stacks(t_dllist **stack_a, t_dllist **stack_b)
 {
 	*stack_a = ft_new_dllist();
 	if (*stack_a == NULL)
-		exit(4);
+		return (-1);
 	*stack_b = ft_new_dllist();
 	if (*stack_b == NULL)
 	{
 		ft_free_dllist(*stack_a);
-		exit(5);
+		return (-1);
 	}
+	return (0);
 }
