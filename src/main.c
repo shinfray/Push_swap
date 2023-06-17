@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:05:55 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/16 16:05:45 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/17 11:26:36 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ int	main(int argc, char **argv)
 		exit(3);
 	}
 
+	ft_print_stack(stack_a, stack_b);
+	printf("total node a %zu\n", stack_a->total_nodes);
+	printf("total node b %zu\n", stack_b->total_nodes);
+	ft_pb(stack_a, stack_b);
 	ft_print_stack(stack_a, stack_b);
 
 	return (0);

@@ -6,7 +6,7 @@
 #    By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 17:10:39 by shinfray          #+#    #+#              #
-#    Updated: 2023/06/16 16:46:30 by shinfray         ###   ########.fr        #
+#    Updated: 2023/06/17 11:59:55 by shinfray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,10 @@ EXT:=	.c
 SRCS_PUSH_SWAP:=	main \
 					dllist \
 					parse \
-					moves
+					moves/s_moves \
+					moves/p_moves \
+					moves/r_moves \
+					moves/rr_moves
 
 SRCS:=	${addprefix ${SRCS_DIR}/,${addsuffix ${EXT},${SRCS_PUSH_SWAP}}}
 

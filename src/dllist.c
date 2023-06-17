@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:52:37 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/16 16:53:23 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/17 09:36:39 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,10 +121,10 @@ t_dllist_node	*ft_dllist_append(t_dllist *dllist, int value)
 
 t_dllist_node	*ft_dllist_next(t_dllist_node *node)
 {
-  return node->next;
+  return (node->next);
 }
 
 t_dllist_node	*ft_dllist_prev(t_dllist_node *node)
 {
-  return node->prev;
+  return (node->prev);
 }

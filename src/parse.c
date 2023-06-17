@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:04:24 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/16 16:24:12 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/17 09:41:20 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv)
 			|| ft_is_duplicate_number(dllist, temp) == true \
 			|| ft_dllist_append(dllist, temp) == NULL)
 			return (NULL);
+		dllist->total_nodes++;
 	}
 	return (dllist);
 }

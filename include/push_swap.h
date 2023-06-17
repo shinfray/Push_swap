@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:06:36 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/16 16:49:51 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/17 12:17:11 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,18 @@ t_dllist_node	*ft_dllist_prev(t_dllist_node *node);
 t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv);
 int			ft_atoi_ps(const char *str, bool *error_status);
 bool		ft_is_duplicate_number(t_dllist *dllist, int n);
+
+/*	MOVES FUNCTIONS	*/
+void	ft_sa(t_dllist *stack_a, t_dllist *stack_b);
+void	ft_sb(t_dllist *stack_a, t_dllist *stack_b);
+void	ft_ss(t_dllist *stack_a, t_dllist *stack_b);
+void	ft_pa(t_dllist *stack_a, t_dllist *stack_b);
+void	ft_pb(t_dllist *stack_a, t_dllist *stack_b);
+void	ft_ra(t_dllist *stack_a, t_dllist *stack_b);
+void	ft_rb(t_dllist *stack_a, t_dllist *stack_b);
+void	ft_rr(t_dllist *stack_a, t_dllist *stack_b);
+void	ft_rra(t_dllist *stack_a, t_dllist *stack_b);
+void	ft_rrb(t_dllist *stack_a, t_dllist *stack_b);
+void	ft_rrr(t_dllist *stack_a, t_dllist *stack_b);
 
 #endif
