@@ -6,34 +6,29 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:05:55 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 12:55:19 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/17 13:49:37 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int		ft_initialize_stacks(t_dllist **stack_a, t_dllist **stack_b);
-static void		ft_print_stack(t_dllist *stack_a, t_dllist *stack_b);
-static int		ft_exit_on_error(void);
+static void	ft_print_stack(t_dllist *stack_a, t_dllist *stack_b);
 
-static int	ft_exit_on_error(void)
-{
-	ft_putendl_fd("Error", STDERR_FILENO);
-	return (EXIT_FAILURE);
-}
+static int	ft_initialize_stacks(t_dllist **stack_a, t_dllist **stack_b);
+static int	ft_exit_on_error(void);
+static void	ft_free_stacks(t_dllist *stack_a, t_dllist *stack_b);
 
 int	main(int argc, char **argv)
 {
 	t_dllist	*stack_a;
 	t_dllist	*stack_b;
 
-	if (argc < 2 || ft_initialize_stacks(&stack_a, &stack_b) == -1);
-		return (ft_exit_on_error);
+	if (argc < 2 || ft_initialize_stacks(&stack_a, &stack_b) == -1)
+		return (ft_exit_on_error());
 	if (ft_retrieve_args(stack_a, argc, argv) == NULL)
 	{
-		ft_free_dllist(stack_a);
-		ft_free_dllist(stack_b);
-		return (ft_exit_on_error);
+		ft_free_stacks(stack_a, stack_b);
+		return (ft_exit_on_error());
 	}
 
 	ft_print_stack(stack_a, stack_b);
@@ -88,4 +83,16 @@ static int	ft_initialize_stacks(t_dllist **stack_a, t_dllist **stack_b)
 		return (-1);
 	}
 	return (0);
+}
+
+static int	ft_exit_on_error(void)
+{
+	ft_putendl_fd("Error", STDERR_FILENO);
+	return (EXIT_FAILURE);
+}
+
+static void	ft_free_stacks(t_dllist *stack_a, t_dllist *stack_b)
+{
+	ft_free_dllist(stack_a);
+	ft_free_dllist(stack_b);
 }
