@@ -6,15 +6,15 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:04:24 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 09:41:20 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/17 14:25:23 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv);
-int			ft_atoi_ps(const char *str, bool *error_status);
-bool		ft_is_duplicate_number(t_dllist *dllist, int n);
+static int	ft_atoi_push_swap(const char *str, bool *error_status);
+static bool	ft_is_duplicate_number(t_dllist *dllist, int n);
 
 t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv)
 {
@@ -25,7 +25,7 @@ t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv)
 	i = 1;
 	while (argc-- > 1)
 	{
-		temp = ft_atoi_ps(argv[i++], &status_ft_atoi_ps);
+		temp = ft_atoi_push_swap(argv[i++], &status_ft_atoi_ps);
 		if (status_ft_atoi_ps == EXIT_FAILURE \
 			|| ft_is_duplicate_number(dllist, temp) == true \
 			|| ft_dllist_append(dllist, temp) == NULL)
@@ -35,7 +35,7 @@ t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv)
 	return (dllist);
 }
 
-int	ft_atoi_ps(const char *str, bool *error_status)
+int	ft_atoi_push_swap(const char *str, bool *error_status)
 {
 	long int		n;
 	int				sign;
