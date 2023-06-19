@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:55:25 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 15:39:53 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:37:08 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ typedef struct dllist
 /*	INITIALIZE STACKS	*/
 int				ft_initialize_stacks(t_dllist **stack_a, t_dllist **stack_b);
 /*	PARSE FUNCTIONS	*/
-t_dllist		*ft_retrieve_args(t_dllist *dllist, int argc, char **argv);
+char			**ft_check_args_format(int argc, char **argv);
+t_dllist		*ft_retrieve_args(t_dllist *dllist, char **args_list);
 /*	CLOSURE FUNCTIONS	*/
 int				ft_exit_on_error(void);
 void			ft_free_stacks(t_dllist *stack_a, t_dllist *stack_b);
+void			ft_free_args_list(char **args_list);
 
 /*
  *	DLLIST FUNCTIONS

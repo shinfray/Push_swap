@@ -6,26 +6,40 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:04:24 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 15:17:53 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:26:00 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv);
+char		**ft_check_args_format(int argc, char **argv);
+t_dllist	*ft_retrieve_args(t_dllist *dllist, char **args_list);
 static int	ft_atoi_push_swap(const char *str, bool *error_status);
 static bool	ft_is_duplicate_number(t_dllist *dllist, int n);
 
-t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv)
+char	**ft_check_args_format(int argc, char **argv)
+{
+	char		**args_list;
+
+	if (argc == 2)
+	{
+		args_list = ft_split(argv[1], ' ');
+		if (args_list == NULL)
+			return (NULL);
+	}
+	else
+		args_list = argv + 1;
+	return (args_list);
+}
+
+t_dllist	*ft_retrieve_args(t_dllist *dllist, char **args_list)
 {
 	bool	status_ft_atoi_push_swap;
 	int		temp;
-	int		i;
 
-	i = 1;
-	while (argc-- > 1)
+	while (*args_list != NULL)
 	{
-		temp = ft_atoi_push_swap(argv[i++], &status_ft_atoi_push_swap);
+		temp = ft_atoi_push_swap(*args_list++, &status_ft_atoi_push_swap);
 		if (status_ft_atoi_push_swap == EXIT_FAILURE \
 			|| ft_is_duplicate_number(dllist, temp) == true \
 			|| ft_dllist_append(dllist, temp) == NULL)
@@ -37,11 +51,13 @@ t_dllist	*ft_retrieve_args(t_dllist *dllist, int argc, char **argv)
 
 int	ft_atoi_push_swap(const char *str, bool *error_status)
 {
-	long int		n;
-	int				sign;
+	long int	n;
+	int			sign;
+	const char	*save;
 
 	n = 0;
 	sign = 1;
+	save = str;
 	if (*str == '+' || *str == '-')
 		if (*str++ == '-')
 			sign = -1;
@@ -53,7 +69,7 @@ int	ft_atoi_push_swap(const char *str, bool *error_status)
 		++str;
 	}
 	n *= sign;
-	if (*str == '\0' && n >= INT_MIN && n <= INT_MAX)
+	if (*str == '\0' && save != str && n >= INT_MIN && n <= INT_MAX)
 		*error_status = EXIT_SUCCESS;
 	else
 		*error_status = EXIT_FAILURE;

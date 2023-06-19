@@ -6,12 +6,13 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:05:55 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 15:37:16 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:05:57by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// #include "ft_printf.h"
 // static void	ft_print_stack(t_dllist *stack_a, t_dllist *stack_b)
 // {
 // 	t_dllist_node	*temp_a;
@@ -37,14 +38,21 @@ int	main(int argc, char **argv)
 {
 	t_dllist	*stack_a;
 	t_dllist	*stack_b;
+	char		**args_list;
 
 	if (argc < 2 || ft_initialize_stacks(&stack_a, &stack_b) == -1)
 		return (ft_exit_on_error());
-	if (ft_retrieve_args(stack_a, argc, argv) == NULL)
+	args_list = ft_check_args_format(argc, argv);
+	if (args_list == NULL || ft_retrieve_args(stack_a, args_list) == NULL)
 	{
 		ft_free_stacks(stack_a, stack_b);
+		if (args_list != NULL && argc == 2)
+			ft_free_args_list(args_list);
 		return (ft_exit_on_error());
 	}
+	//sort
 	ft_free_stacks(stack_a, stack_b);
+	if (argc == 2)
+		ft_free_args_list(args_list);
 	return (0);
 }
