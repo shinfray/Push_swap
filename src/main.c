@@ -54,5 +54,5 @@ int	main(int argc, char **argv)
 	ft_free_stacks(stack_a, stack_b);
 	if (argc == 2)
 		ft_free_args_list(args_list);
-	return (0);
+	return (EXIT_SUCCESS);
 }
