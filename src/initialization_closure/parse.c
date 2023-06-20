@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:04:24 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/19 18:26:00 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/20 09:48:59 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ t_dllist	*ft_retrieve_args(t_dllist *dllist, char **args_list)
 	bool	status_ft_atoi_push_swap;
 	int		temp;
 
+	if (args_list == NULL || *args_list == NULL)
+		return (NULL);
 	while (*args_list != NULL)
 	{
 		temp = ft_atoi_push_swap(*args_list++, &status_ft_atoi_push_swap);
