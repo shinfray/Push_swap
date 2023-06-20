@@ -13,7 +13,8 @@
 #include "push_swap.h"
 
 // #include "ft_printf.h"
-// static void	ft_print_stack(t_dllist *stack_a, t_dllist *stack_b)
+// #include <stdio.h>
+// void	ft_print_stack(t_dllist *stack_a, t_dllist *stack_b)
 // {
 // 	t_dllist_node	*temp_a;
 // 	t_dllist_node	*temp_b;

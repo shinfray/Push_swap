@@ -22,7 +22,7 @@ void	ft_rra(t_dllist *stack_a, t_dllist *stack_b)
 	(void)stack_b;
 	if (stack_a->total_nodes > 1)
 		ft_reverse_r(stack_a);
-	ft_putendl_fd("ra", STDOUT_FILENO);
+	ft_putendl_fd("rra", STDOUT_FILENO);
 }
 
 void	ft_rrb(t_dllist *stack_a, t_dllist *stack_b)
@@ -30,7 +30,7 @@ void	ft_rrb(t_dllist *stack_a, t_dllist *stack_b)
 	(void)stack_a;
 	if (stack_b->total_nodes > 1)
 		ft_reverse_r(stack_b);
-	ft_putendl_fd("rb", STDOUT_FILENO);
+	ft_putendl_fd("rrb", STDOUT_FILENO);
 }
 
 void	ft_rrr(t_dllist *stack_a, t_dllist *stack_b)
@@ -39,7 +39,7 @@ void	ft_rrr(t_dllist *stack_a, t_dllist *stack_b)
 		ft_reverse_r(stack_a);
 	if (stack_b->total_nodes > 1)
 		ft_reverse_r(stack_b);
-	ft_putendl_fd("rr", STDOUT_FILENO);
+	ft_putendl_fd("rrr", STDOUT_FILENO);
 }
 
 static void	ft_reverse_r(t_dllist *stack)
