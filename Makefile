@@ -29,7 +29,8 @@ SRCS_PUSH_SWAP:=	main \
 					moves/rr_moves \
 					dllist/dllist_creation_destruction \
 					dllist/dllist_accessor \
-					dllist/dllist_insertion
+					dllist/dllist_insertion \
+					sort
 
 SRCS:=	${addprefix ${SRCS_DIR}/,${addsuffix ${EXT},${SRCS_PUSH_SWAP}}}
 
