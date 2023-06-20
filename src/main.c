@@ -46,13 +46,13 @@ int	main(int argc, char **argv)
 	if (args_list == NULL || ft_retrieve_args(stack_a, args_list) == NULL)
 	{
 		ft_free_stacks(stack_a, stack_b);
-		if (args_list != NULL && argc == 2)
+		if (args_list != NULL && args_list != argv + 1)
 			ft_free_args_list(args_list);
 		return (ft_exit_on_error());
 	}
 	//sort
 	ft_free_stacks(stack_a, stack_b);
-	if (argc == 2)
+	if (args_list != argv + 1)
 		ft_free_args_list(args_list);
 	return (EXIT_SUCCESS);
 }
