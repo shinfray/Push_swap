@@ -39,7 +39,7 @@ int				ft_initialize_stacks(t_dllist **stack_a, t_dllist **stack_b);
 char			**ft_check_args_format(int argc, char **argv);
 t_dllist		*ft_retrieve_args(t_dllist *dllist, char **args_list);
 /*	CLOSURE FUNCTIONS	*/
-int				ft_exit_on_error(void);
+int				ft_exit_push_swap(int exit_status);
 void			ft_free_stacks(t_dllist *stack_a, t_dllist *stack_b);
 void			ft_free_args_list(char **args_list);
 

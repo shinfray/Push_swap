@@ -39,20 +39,20 @@ int	main(int argc, char **argv)
 	t_dllist	*stack_a;
 	t_dllist	*stack_b;
 	char		**args_list;
+	int			exit_status;
 
 	if (argc < 2 || ft_initialize_stacks(&stack_a, &stack_b) == -1)
-		return (ft_exit_on_error());
+		return (ft_exit_push_swap(EXIT_FAILURE));
 	args_list = ft_check_args_format(argc, argv);
-	if (ft_retrieve_args(stack_a, args_list) == NULL)
+	if (ft_retrieve_args(stack_a, args_list) != NULL)
 	{
-		ft_free_stacks(stack_a, stack_b);
-		if (args_list != NULL && args_list != argv + 1)
-			ft_free_args_list(args_list);
-		return (ft_exit_on_error());
+		//sort
+		exit_status = EXIT_SUCCESS;
 	}
-	//sort
+	else
+		exit_status = EXIT_FAILURE;
 	ft_free_stacks(stack_a, stack_b);
-	if (args_list != argv + 1)
+	if (args_list != NULL && args_list != argv + 1)
 		ft_free_args_list(args_list);
-	return (EXIT_SUCCESS);
+	return (ft_exit_push_swap(exit_status));
 }

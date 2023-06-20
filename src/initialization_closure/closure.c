@@ -12,14 +12,15 @@
 
 #include "push_swap.h"
 
-int		ft_exit_on_error(void);
+int		ft_exit_push_swap(int exit_status);
 void	ft_free_stacks(t_dllist *stack_a, t_dllist *stack_b);
 void	ft_free_args_list(char **args_list);
 
-int	ft_exit_on_error(void)
+int	ft_exit_push_swap(int exit_status)
 {
-	ft_putendl_fd("Error", STDERR_FILENO);
-	return (EXIT_FAILURE);
+	if (exit_status == EXIT_FAILURE)
+		ft_putendl_fd("Error", STDERR_FILENO);
+	return (exit_status);
 }
 
 void	ft_free_stacks(t_dllist *stack_a, t_dllist *stack_b)
