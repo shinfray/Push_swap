@@ -75,7 +75,7 @@ int	ft_atoi_push_swap(const char *str, bool *error_status)
 		*error_status = EXIT_SUCCESS;
 	else
 		*error_status = EXIT_FAILURE;
-	return (n);
+	return ((int)n);
 }
 
 bool	ft_is_duplicate_number(t_dllist *dllist, int n)
