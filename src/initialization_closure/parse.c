@@ -36,9 +36,7 @@ t_dllist	*ft_retrieve_args(t_dllist *dllist, char **args_list)
 {
 	bool	status_ft_atoi_push_swap;
 	int		temp;
-	size_t	i;
 
-	i = 0;
 	if (args_list == NULL || *args_list == NULL)
 		return (NULL);
 	while (*args_list != NULL)
@@ -49,7 +47,6 @@ t_dllist	*ft_retrieve_args(t_dllist *dllist, char **args_list)
 			|| ft_dllist_append(dllist, temp) == NULL)
 			return (NULL);
 		dllist->total_nodes++;
-		ft_dllist_last(dllist)->place = i++;
 	}
 	return (dllist);
 }

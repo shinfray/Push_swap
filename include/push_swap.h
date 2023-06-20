@@ -22,8 +22,6 @@ typedef struct dllist_node
 	struct dllist_node	*next;
 	struct dllist_node	*prev;
 	int					val;
-	size_t				place;
-	bool				is_sorted;
 }				t_dllist_node;
 
 typedef struct dllist
