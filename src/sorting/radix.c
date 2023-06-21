@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 19:59:09 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/21 21:03:57 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/21 21:13:52 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ void		ft_radix_sort(t_dllist *stack_a, t_dllist *stack_b);
 static void	ft_sort_bit_x(t_stacks *s_stacks, int bitshift, int neg_pos_num);
 static int	ft_width(unsigned int number);
 
+/*
+ *	In this function, the variable number_sign is set to 0 only when all
+ *	the significants bits have been sorted,
+ *	in order to place the negatives numbers before the positives numbers
+ *	(the non significant bits of negative numbers are filled with 1s, not 0s).
+*/
 void	ft_radix_sort(t_dllist *stack_a, t_dllist *stack_b)
 {
 	const int	width = ft_width(stack_a->biggest_abs_number);
@@ -58,7 +64,7 @@ static void	ft_sort_bit_x(t_stacks *s_stacks, int bit, int number_sign)
 /*
  *	special case:
  *	this function return 31 when number is 1 bigger than INT_MAX,
- *	because we don't need more than that.
+ *	because we don't need more than that for radix_sort.
 */
 static int	ft_width(unsigned int number)
 {
