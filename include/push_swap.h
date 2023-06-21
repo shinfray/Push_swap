@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:55:25 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/20 09:36:41 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/21 20:32:29 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct dllist
 {
 	t_dllist_node	*sentinel_node;
 	size_t			total_nodes;
+	unsigned int	biggest_number;
 }				t_dllist;
 
 /*
@@ -76,5 +77,11 @@ void			ft_rr(t_dllist *stack_a, t_dllist *stack_b);
 void			ft_rra(t_dllist *stack_a, t_dllist *stack_b);
 void			ft_rrb(t_dllist *stack_a, t_dllist *stack_b);
 void			ft_rrr(t_dllist *stack_a, t_dllist *stack_b);
+
+/*
+ *	MOVES FUNCTIONS
+*/
+/*	RADIX	*/
+void			ft_radix_sort(t_dllist *stack_a, t_dllist *stack_b);
 
 #endif

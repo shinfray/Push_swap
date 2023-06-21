@@ -6,16 +6,17 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:04:24 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/20 09:48:59 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:04:16 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char		**ft_check_args_format(int argc, char **argv);
-t_dllist	*ft_retrieve_args(t_dllist *dllist, char **args_list);
-static int	ft_atoi_push_swap(const char *str, bool *error_status);
-static bool	ft_is_duplicate_number(t_dllist *dllist, int n);
+char				**ft_check_args_format(int argc, char **argv);
+t_dllist			*ft_retrieve_args(t_dllist *dllist, char **args_list);
+static int			ft_atoi_push_swap(const char *str, bool *error_status);
+static bool			ft_is_duplicate_number(t_dllist *dllist, int n);
+static unsigned int	ft_abs(int number);
 
 char	**ft_check_args_format(int argc, char **argv)
 {
@@ -47,6 +48,8 @@ t_dllist	*ft_retrieve_args(t_dllist *dllist, char **args_list)
 			|| ft_dllist_append(dllist, temp) == NULL)
 			return (NULL);
 		dllist->total_nodes++;
+		if (ft_abs(ft_dllist_last(dllist)->val) > dllist->biggest_number)
+			dllist->biggest_number = ft_abs(ft_dllist_last(dllist)->val);
 	}
 	return (dllist);
 }
@@ -92,4 +95,11 @@ bool	ft_is_duplicate_number(t_dllist *dllist, int n)
 		temp = ft_dllist_next(temp);
 	}
 	return (false);
+}
+
+static unsigned int	ft_abs(int number)
+{
+	if (number < 0)
+		return (-number);
+	return (number);
 }
