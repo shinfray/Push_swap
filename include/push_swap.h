@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:55:25 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/21 20:56:46 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/21 22:15:09 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,14 @@ typedef struct stacks
 /*
  *	INITIALIZATION_CLOSURE FUNCTIONS
 */
-/*	INITIALIZE STACKS	*/
-int				ft_initialize_stacks(t_dllist **stack_a, t_dllist **stack_b);
+/*	INITIALIZE_STACKS	*/
+int				ft_initialize_stacks(t_stacks *stacks);
 /*	PARSE FUNCTIONS	*/
 char			**ft_check_args_format(int argc, char **argv);
 t_dllist		*ft_retrieve_args(t_dllist *dllist, char **args_list);
 /*	CLOSURE FUNCTIONS	*/
+void			ft_free_push_swap(t_stacks *stacks, char **nums, char **argv);
 int				ft_exit_push_swap(int exit_status);
-void			ft_free_stacks(t_dllist *stack_a, t_dllist *stack_b);
-void			ft_free_args_list(char **args_list);
 
 /*
  *	DLLIST FUNCTIONS
@@ -66,28 +65,28 @@ bool			ft_dllist_is_empty(t_dllist *dllist);
 t_dllist_node	*ft_dllist_append(t_dllist *dllist, int val);
 
 /*
- *	MOVES FUNCTIONS
+ *	SORTING FUNCTIONS
 */
-/*	SWAP	*/
-void			ft_sa(t_dllist *stack_a, t_dllist *stack_b);
-void			ft_sb(t_dllist *stack_a, t_dllist *stack_b);
-void			ft_ss(t_dllist *stack_a, t_dllist *stack_b);
-/*	PUSH	*/
-void			ft_pa(t_dllist *stack_a, t_dllist *stack_b);
-void			ft_pb(t_dllist *stack_a, t_dllist *stack_b);
-/*	ROTATE	*/
-void			ft_ra(t_dllist *stack_a, t_dllist *stack_b);
-void			ft_rb(t_dllist *stack_a, t_dllist *stack_b);
-void			ft_rr(t_dllist *stack_a, t_dllist *stack_b);
-/*	REVERSE ROTATE	*/
-void			ft_rra(t_dllist *stack_a, t_dllist *stack_b);
-void			ft_rrb(t_dllist *stack_a, t_dllist *stack_b);
-void			ft_rrr(t_dllist *stack_a, t_dllist *stack_b);
+/*	RADIX_SORT	*/
+void			ft_radix_sort(t_stacks *stacks);
 
 /*
  *	MOVES FUNCTIONS
 */
-/*	RADIX	*/
-void			ft_radix_sort(t_dllist *stack_a, t_dllist *stack_b);
+/*	S_MOVES SWAP	*/
+void			ft_sa(t_dllist *stack_a, t_dllist *stack_b);
+void			ft_sb(t_dllist *stack_a, t_dllist *stack_b);
+void			ft_ss(t_dllist *stack_a, t_dllist *stack_b);
+/*	P_MOVES PUSH	*/
+void			ft_pa(t_dllist *stack_a, t_dllist *stack_b);
+void			ft_pb(t_dllist *stack_a, t_dllist *stack_b);
+/*	R_MOVES ROTATE	*/
+void			ft_ra(t_dllist *stack_a, t_dllist *stack_b);
+void			ft_rb(t_dllist *stack_a, t_dllist *stack_b);
+void			ft_rr(t_dllist *stack_a, t_dllist *stack_b);
+/*	RR_MOVES REVERSE ROTATE	*/
+void			ft_rra(t_dllist *stack_a, t_dllist *stack_b);
+void			ft_rrb(t_dllist *stack_a, t_dllist *stack_b);
+void			ft_rrr(t_dllist *stack_a, t_dllist *stack_b);
 
 #endif

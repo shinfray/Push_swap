@@ -6,15 +6,23 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:36:29 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/20 09:41:40 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/21 22:09:44 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_exit_push_swap(int exit_status);
-void	ft_free_stacks(t_dllist *stack_a, t_dllist *stack_b);
-void	ft_free_args_list(char **args_list);
+void		ft_free_push_swap(t_stacks *stacks, char **nums, char **argv);
+int			ft_exit_push_swap(int exit_status);
+static void	ft_free_stacks(t_stacks *stacks);
+static void	ft_free_nums(char **nums);
+
+void	ft_free_push_swap(t_stacks *stacks, char **nums, char **argv)
+{
+	ft_free_stacks(stacks);
+	if (nums != NULL && nums != argv + 1)
+		ft_free_nums(nums);
+}
 
 int	ft_exit_push_swap(int exit_status)
 {
@@ -23,18 +31,18 @@ int	ft_exit_push_swap(int exit_status)
 	return (exit_status);
 }
 
-void	ft_free_stacks(t_dllist *stack_a, t_dllist *stack_b)
+static void	ft_free_stacks(t_stacks *stacks)
 {
-	ft_free_dllist(stack_a);
-	ft_free_dllist(stack_b);
+	ft_free_dllist(stacks->stack_a);
+	ft_free_dllist(stacks->stack_b);
 }
 
-void	ft_free_args_list(char **args_list)
+static void	ft_free_nums(char **nums)
 {
 	char	**save;
 
-	save = args_list;
-	while (*args_list != NULL)
-		free(*args_list++);
+	save = nums;
+	while (*nums != NULL)
+		free(*nums++);
 	free(save);
 }

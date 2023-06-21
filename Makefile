@@ -6,7 +6,7 @@
 #    By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 17:10:39 by shinfray          #+#    #+#              #
-#    Updated: 2023/06/21 19:54:33 by shinfray         ###   ########.fr        #
+#    Updated: 2023/06/21 22:12:12 by shinfray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRCS_PUSH_SWAP:=	main \
 					dllist/dllist_creation_destruction \
 					dllist/dllist_accessor \
 					dllist/dllist_insertion \
-					sorting/radix
+					sorting/radix_sort
 
 SRCS:=	${addprefix ${SRCS_DIR}/,${addsuffix ${EXT},${SRCS_PUSH_SWAP}}}
 

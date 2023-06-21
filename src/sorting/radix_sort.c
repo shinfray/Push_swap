@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   radix.c                                            :+:      :+:    :+:   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 19:59:09 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/21 21:25:09 by shinfray         ###   ########.fr       */
+/*   Created: 2023/06/21 22:12:05 by shinfray          #+#    #+#             */
+/*   Updated: 2023/06/21 22:12:06 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_radix_sort(t_dllist *stack_a, t_dllist *stack_b);
+void		ft_radix_sort(t_stacks *stacks);
 static void	ft_sort_bit_x(t_stacks *s_stacks, int bitshift, int neg_pos_num);
 static int	ft_width(unsigned int number);
 static bool	ft_stack_is_sorted(t_dllist *stack_a);
@@ -23,24 +23,21 @@ static bool	ft_stack_is_sorted(t_dllist *stack_a);
  *	in order to place the negatives numbers before the positives numbers
  *	(the non significant bits of negative numbers are filled with 1s, not 0s).
 */
-void	ft_radix_sort(t_dllist *stack_a, t_dllist *stack_b)
+void	ft_radix_sort(t_stacks *stacks)
 {
-	const int	width = ft_width(stack_a->biggest_abs_number);
-	t_stacks	s_stacks;
+	const int	width = ft_width(stacks->stack_a->biggest_abs_number);
 	int			current_bit;
 	int			number_sign;
 
-	if (ft_stack_is_sorted(stack_a) == true)
+	if (ft_stack_is_sorted(stacks->stack_a) == true)
 		return ;
-	s_stacks.stack_a = stack_a;
-	s_stacks.stack_b = stack_b;
 	current_bit = 0;
 	number_sign = 1;
 	while (current_bit <= width)
 	{
 		if (current_bit == width)
 			number_sign = 0;
-		ft_sort_bit_x(&s_stacks, current_bit++, number_sign);
+		ft_sort_bit_x(stacks, current_bit++, number_sign);
 	}
 }
 

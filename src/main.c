@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 09:41:12 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/21 21:03:44 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/21 22:06:03 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,20 @@
 
 int	main(int argc, char **argv)
 {
-	t_dllist	*stack_a;
-	t_dllist	*stack_b;
-	char		**args_list;
+	t_stacks	s_stacks;
+	char		**nums;
 	int			exit_status;
 
-	if (argc < 2 || ft_initialize_stacks(&stack_a, &stack_b) == -1)
+	if (argc < 2 || ft_initialize_stacks(&s_stacks) == -1)
 		return (ft_exit_push_swap(EXIT_FAILURE));
-	args_list = ft_check_args_format(argc, argv);
-	if (ft_retrieve_args(stack_a, args_list) != NULL)
+	nums = ft_check_args_format(argc, argv);
+	if (ft_retrieve_args(s_stacks.stack_a, nums) != NULL)
 	{
-		ft_radix_sort(stack_a, stack_b);
+		ft_radix_sort(&s_stacks);
 		exit_status = EXIT_SUCCESS;
 	}
 	else
 		exit_status = EXIT_FAILURE;
-	ft_free_stacks(stack_a, stack_b);
-	if (args_list != NULL && args_list != argv + 1)
-		ft_free_args_list(args_list);
+	ft_free_push_swap(&s_stacks, nums, argv);
 	return (ft_exit_push_swap(exit_status));
 }
