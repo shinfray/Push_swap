@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 19:59:09 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/21 21:13:52 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/21 21:25:09 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void		ft_radix_sort(t_dllist *stack_a, t_dllist *stack_b);
 static void	ft_sort_bit_x(t_stacks *s_stacks, int bitshift, int neg_pos_num);
 static int	ft_width(unsigned int number);
+static bool	ft_stack_is_sorted(t_dllist *stack_a);
 
 /*
  *	In this function, the variable number_sign is set to 0 only when all
@@ -29,6 +30,8 @@ void	ft_radix_sort(t_dllist *stack_a, t_dllist *stack_b)
 	int			current_bit;
 	int			number_sign;
 
+	if (ft_stack_is_sorted(stack_a) == true)
+		return ;
 	s_stacks.stack_a = stack_a;
 	s_stacks.stack_b = stack_b;
 	current_bit = 0;
@@ -79,4 +82,21 @@ static int	ft_width(unsigned int number)
 		count++;
 	}
 	return (count);
+}
+
+static bool	ft_stack_is_sorted(t_dllist *stack_a)
+{
+	t_dllist_node	*current_node;
+	t_dllist_node	*next_node;
+
+	current_node = ft_dllist_first(stack_a);
+	next_node = ft_dllist_next(current_node);
+	while (next_node != stack_a->sentinel_node)
+	{
+		if (current_node->val > next_node->val)
+			return (false);
+		current_node = next_node;
+		next_node = ft_dllist_next(current_node);
+	}
+	return (true);
 }
