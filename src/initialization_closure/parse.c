@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:04:24 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/21 20:57:14 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/21 22:17:57 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,6 @@ bool	ft_is_duplicate_number(t_dllist *dllist, int n)
 static unsigned int	ft_abs(int number)
 {
 	if (number < 0)
-		return (-number);
-	return (number);
+		return ((unsigned int)(-number));
+	return ((unsigned int)number);
 }
