@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:55:25 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/21 20:32:29 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/21 20:56:46 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,14 @@ typedef struct dllist
 {
 	t_dllist_node	*sentinel_node;
 	size_t			total_nodes;
-	unsigned int	biggest_number;
+	unsigned int	biggest_abs_number;
 }				t_dllist;
+
+typedef struct stacks
+{
+	t_dllist	*stack_a;
+	t_dllist	*stack_b;
+}				t_stacks;
 
 /*
  *	INITIALIZATION_CLOSURE FUNCTIONS

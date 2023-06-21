@@ -6,39 +6,47 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 19:59:09 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/21 20:33:34 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/21 21:03:57 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void		ft_radix_sort(t_dllist *stack_a, t_dllist *stack_b);
-static void	ft_sort_digit(t_dllist *stack_a, t_dllist *stack_b, int bitshift, int neg_pos_num);
+static void	ft_sort_bit_x(t_stacks *s_stacks, int bitshift, int neg_pos_num);
 static int	ft_width(unsigned int number);
 
 void	ft_radix_sort(t_dllist *stack_a, t_dllist *stack_b)
 {
-	const int	width = ft_width(stack_a->biggest_number);
+	const int	width = ft_width(stack_a->biggest_abs_number);
+	t_stacks	s_stacks;
 	int			current_bit;
-	int			neg_pos_num;
+	int			number_sign;
 
+	s_stacks.stack_a = stack_a;
+	s_stacks.stack_b = stack_b;
 	current_bit = 0;
-	neg_pos_num = 1;
+	number_sign = 1;
 	while (current_bit <= width)
 	{
 		if (current_bit == width)
-			neg_pos_num = 0;
-		ft_sort_digit(stack_a, stack_b, current_bit++, neg_pos_num);
+			number_sign = 0;
+		ft_sort_bit_x(&s_stacks, current_bit++, number_sign);
 	}
 }
 
-static void	ft_sort_digit(t_dllist *stack_a, t_dllist *stack_b, int bitshift, int neg_pos_num)
+static void	ft_sort_bit_x(t_stacks *s_stacks, int bit, int number_sign)
 {
-	size_t	total_number = stack_a->total_nodes;
+	t_dllist	*stack_a;
+	t_dllist	*stack_b;
+	size_t		nodes_count_stack_a;
 
-	while (total_number--)
+	stack_a = s_stacks->stack_a;
+	stack_b = s_stacks->stack_b;
+	nodes_count_stack_a = stack_a->total_nodes;
+	while (nodes_count_stack_a--)
 	{
-		if ((((ft_dllist_first(stack_a)->val) >> bitshift) & 1) == neg_pos_num)
+		if ((((ft_dllist_first(stack_a)->val) >> bit) & 1) == number_sign)
 			ft_ra(stack_a, stack_b);
 		else
 			ft_pb(stack_a, stack_b);

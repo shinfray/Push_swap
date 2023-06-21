@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:04:24 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/21 18:04:16 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/21 20:57:14 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ t_dllist	*ft_retrieve_args(t_dllist *dllist, char **args_list)
 			|| ft_dllist_append(dllist, temp) == NULL)
 			return (NULL);
 		dllist->total_nodes++;
-		if (ft_abs(ft_dllist_last(dllist)->val) > dllist->biggest_number)
-			dllist->biggest_number = ft_abs(ft_dllist_last(dllist)->val);
+		if (ft_abs(ft_dllist_last(dllist)->val) > dllist->biggest_abs_number)
+			dllist->biggest_abs_number = ft_abs(ft_dllist_last(dllist)->val);
 	}
 	return (dllist);
 }
