@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void		ft_radix_sort(t_stacks *stacks);
+int			ft_radix_sort(t_stacks *stacks);
 static void	ft_fill_temp_array(t_dllist *stack_a, int *temp_array);
 static void	ft_fill_array_with_index(t_dllist *stack_a, int *temp_array);
 static void	ft_sort_bit_x(t_stacks *s_stacks, int bit);
@@ -24,15 +24,15 @@ int comparator (const void * p1, const void * p2)
   return (*(int*)p1 - *(int*)p2);
 }
 
-void	ft_radix_sort(t_stacks *stacks)
+int	ft_radix_sort(t_stacks *stacks)
 {
+	int	*temp_array;
 	int	width;
 	int	current_bit;
-	int	*temp_array;
-
 
 	temp_array = ft_calloc(stacks->stack_a->total_nodes, sizeof(*temp_array));
-	// if !temp_array ---> exit error;
+	if (temp_array == NULL)
+		return (-1);
 	ft_fill_temp_array(stacks->stack_a, temp_array);
 	qsort(temp_array, stacks->stack_a->total_nodes, sizeof(*temp_array), comparator);
 	ft_fill_array_with_index(stacks->stack_a, temp_array);
@@ -41,6 +41,7 @@ void	ft_radix_sort(t_stacks *stacks)
 	current_bit = 0;
 	while (current_bit < width)
 		ft_sort_bit_x(stacks, current_bit++);
+	return (0);
 }
 
 static void	ft_fill_temp_array(t_dllist *stack_a, int *temp_array)
@@ -68,7 +69,7 @@ static void	ft_fill_array_with_index(t_dllist *stack_a, int *temp_array)
 		{
 			if (current_node->val == temp_array[i])
 			{
-				current_node->val = i;
+				current_node->val = (int)i;
 				if (stack_a->biggest_number < i)
 					stack_a->biggest_number = i;
 			}
