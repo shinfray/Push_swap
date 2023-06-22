@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 22:12:05 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/22 16:00:44 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:23:22 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,28 @@ void		ft_radix_sort(t_stacks *stacks);
 static void	ft_sort_bit_x(t_stacks *s_stacks, int bitshift, int neg_pos_num);
 static int	ft_width(unsigned int number);
 
+#include "ft_printf.h"
+#include <stdio.h>
+void	ft_print_stack2(t_dllist *stack_a, t_dllist *stack_b)
+{
+	t_dllist_node	*temp_a;
+	t_dllist_node	*temp_b;
+
+	temp_a = ft_dllist_first(stack_a);
+	temp_b = ft_dllist_first(stack_b);
+	ft_printf("new stack a:\n");
+	while (temp_a != stack_a->sentinel_node)
+	{
+		ft_printf("%d\n", temp_a->val);
+		temp_a = ft_dllist_next(temp_a);
+	}
+	ft_printf("new stack b:\n");
+	while (temp_b != stack_b->sentinel_node)
+	{
+		ft_printf("%d\n", temp_b->val);
+		temp_b = ft_dllist_next(temp_b);
+	}
+}
 
 #include <stdio.h>
 int comparator (const void * p1, const void * p2)
@@ -33,8 +55,8 @@ void	ft_radix_sort(t_stacks *stacks)
 {
 	const int	width = ft_width(stacks->stack_a->biggest_abs_number);
 	int			current_bit;
-	int			number_sign;
 
+//////////
 	size_t			i;
 	int			*new_stack;
 	t_dllist_node	*current_node;
@@ -53,16 +75,26 @@ void	ft_radix_sort(t_stacks *stacks)
 	i = 0;
 	while (i < stacks->stack_a->total_nodes)
 		printf("array: %d\n", new_stack[i++]);
-	free(new_stack);
-
-	current_bit = 0;
-	number_sign = 1;
-	while (current_bit <= width)
+	i = 0;
+	size_t	j = 0;
+	current_node = ft_dllist_first(stacks->stack_a);
+	while (current_node != stacks->stack_a->sentinel_node)
 	{
-		if (current_bit == width)
-			number_sign = 0;
-		ft_sort_bit_x(stacks, current_bit++, number_sign);
+		j = 0;
+		while (j < stacks->stack_a->total_nodes)
+		{
+			if (current_node->val == new_stack[j])
+				current_node->val = j;
+			++j;
+		}
+		current_node = ft_dllist_next(current_node);
 	}
+	ft_print_stack2(stacks->stack_a, stacks->stack_b);
+	free(new_stack);
+///////////////////////
+	current_bit = 0;
+	while (current_bit < width)
+		ft_sort_bit_x(stacks, current_bit++, 1);
 }
 
 static void	ft_sort_bit_x(t_stacks *s_stacks, int bit, int number_sign)
