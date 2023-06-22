@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 18:04:18 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/22 18:06:32 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/22 18:50:23 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ static void	ft_fill_array_with_index(t_dllist *stack_a, int *temp_array);
 static void	ft_sort_bit_x(t_stacks *s_stacks, int bit);
 static int	ft_width(unsigned int number);
 
-#include <stdio.h>
-int	ft_comparator(const void *p1, const void *p2)
-{
-	return (*(int *)p1 - *(int *)p2);
-}
+// #include <stdio.h>
+// int	ft_comparator(const void *p1, const void *p2)
+// {
+// 	return (*(int *)p1 - *(int *)p2);
+// }
+// qsort(temp_array, stacks->stack_a->total_nodes, sizeof(*temp_array),
+//ft_comparator);
 
 int	ft_radix_sort(t_stacks *stacks)
 {
@@ -34,7 +36,7 @@ int	ft_radix_sort(t_stacks *stacks)
 	if (temp_array == NULL)
 		return (-1);
 	ft_fill_temp_array(stacks->stack_a, temp_array);
-	qsort(temp_array, stacks->stack_a->total_nodes, sizeof(*temp_array), ft_comparator);
+	ft_qsort(temp_array, 0, (ssize_t)(stacks->stack_a->total_nodes - 1));
 	ft_fill_array_with_index(stacks->stack_a, temp_array);
 	free(temp_array);
 	width = ft_width(stacks->stack_a->biggest_number);

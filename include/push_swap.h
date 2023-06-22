@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:55:25 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/22 17:52:21 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/22 18:47:57 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void			ft_sort_list_up_to_3(t_dllist *stack_a);
 void			ft_sort_list_up_to_5(t_dllist *stack_a, t_dllist *stack_b);
 /*	SORT_UTILS	*/
 bool			ft_stack_is_sorted(t_dllist *stack_a);
+void			ft_qsort(int *array, ssize_t start, ssize_t end);
 
 /*
  *	MOVES FUNCTIONS
