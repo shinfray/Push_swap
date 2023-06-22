@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:50:56 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/22 13:57:02 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:00:07 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void    ft_sort_list_up_to_5(t_dllist *stack_a, t_dllist *stack_b);
 
 void    ft_sort_list_up_to_3(t_dllist *stack_a)
 {
-    const int   a = ft_dllist_first(stack_a)->val;
-    const int   b = ft_dllist_next(ft_dllist_first(stack_a))->val;
-    const int   c = ft_dllist_last(stack_a)->val;
+    int a = ft_dllist_first(stack_a)->val;
+    int b = ft_dllist_next(ft_dllist_first(stack_a))->val;
+    int c = ft_dllist_last(stack_a)->val;
 
     if (stack_a->total_nodes == 2)
         ft_sa(stack_a, NULL);
@@ -32,6 +32,8 @@ void    ft_sort_list_up_to_3(t_dllist *stack_a)
         ft_sa(stack_a, NULL);
         if (ft_stack_is_sorted(stack_a) == true)
             return ;
+        a = ft_dllist_first(stack_a)->val;
+        b = ft_dllist_next(ft_dllist_first(stack_a))->val;
         if (a > b)
             ft_ra(stack_a, NULL);
         else
@@ -41,9 +43,6 @@ void    ft_sort_list_up_to_3(t_dllist *stack_a)
 
 void    ft_sort_list_up_to_5(t_dllist *stack_a, t_dllist *stack_b)
 {
-    int smallest_stack_a;
-    int smallest_stack_a;
-
     while (stack_a->total_nodes > 3)
         ft_pb(stack_a, stack_b);
     if (ft_stack_is_sorted(stack_a) == false)
