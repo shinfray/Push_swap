@@ -6,38 +6,17 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 22:12:05 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/22 16:59:47 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/22 17:21:48y shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void		ft_radix_sort(t_stacks *stacks);
-static void	ft_sort_bit_x(t_stacks *s_stacks, int bitshift, int neg_pos_num);
+static void	ft_fill_temp_array(t_dllist *stack_a, int *temp_array);
+static void	ft_fill_array_with_index(t_dllist *stack_a, int *temp_array);
+static void	ft_sort_bit_x(t_stacks *s_stacks, int bit);
 static int	ft_width(unsigned int number);
-
-#include "ft_printf.h"
-#include <stdio.h>
-void	ft_print_stack2(t_dllist *stack_a, t_dllist *stack_b)
-{
-	t_dllist_node	*temp_a;
-	t_dllist_node	*temp_b;
-
-	temp_a = ft_dllist_first(stack_a);
-	temp_b = ft_dllist_first(stack_b);
-	ft_printf("new stack a:\n");
-	while (temp_a != stack_a->sentinel_node)
-	{
-		ft_printf("%d\n", temp_a->val);
-		temp_a = ft_dllist_next(temp_a);
-	}
-	ft_printf("new stack b:\n");
-	while (temp_b != stack_b->sentinel_node)
-	{
-		ft_printf("%d\n", temp_b->val);
-		temp_b = ft_dllist_next(temp_b);
-	}
-}
 
 #include <stdio.h>
 int comparator (const void * p1, const void * p2)
@@ -45,60 +24,61 @@ int comparator (const void * p1, const void * p2)
   return (*(int*)p1 - *(int*)p2);
 }
 
-/*
- *	In this function, the variable number_sign is set to 0 only when all
- *	the significants bits have been sorted,
- *	in order to place the negatives numbers before the positives numbers
- *	(the non significant bits of negative numbers are filled with 1s, not 0s).
-*/
 void	ft_radix_sort(t_stacks *stacks)
 {
 	int	width;
-	int			current_bit;
+	int	current_bit;
+	int	*temp_array;
 
-//////////
-	size_t			i;
-	int			*new_stack;
+
+	temp_array = ft_calloc(stacks->stack_a->total_nodes, sizeof(*temp_array));
+	// if !temp_array ---> exit error;
+	ft_fill_temp_array(stacks->stack_a, temp_array);
+	qsort(temp_array, stacks->stack_a->total_nodes, sizeof(*temp_array), comparator);
+	ft_fill_array_with_index(stacks->stack_a, temp_array);
+	free(temp_array);
+	width = ft_width(stacks->stack_a->biggest_number);
+	current_bit = 0;
+	while (current_bit < width)
+		ft_sort_bit_x(stacks, current_bit++);
+}
+
+static void	ft_fill_temp_array(t_dllist *stack_a, int *temp_array)
+{
 	t_dllist_node	*current_node;
 
-
-	new_stack = ft_calloc(stacks->stack_a->total_nodes, sizeof(*new_stack));
-	// if !new_stack ---> exit error;
-	i = 0;
-	current_node = ft_dllist_first(stacks->stack_a);
-	while (current_node != stacks->stack_a->sentinel_node)
+	current_node = ft_dllist_first(stack_a);
+	while (current_node != stack_a->sentinel_node)
 	{
-		new_stack[i++] = current_node->val;
+		*temp_array++ = current_node->val;
 		current_node = ft_dllist_next(current_node);
 	}
-	qsort(new_stack, stacks->stack_a->total_nodes, sizeof(*new_stack), comparator);
-	i = 0;
-	size_t	j = 0;
-	current_node = ft_dllist_first(stacks->stack_a);
-	while (current_node != stacks->stack_a->sentinel_node)
+}
+
+static void	ft_fill_array_with_index(t_dllist *stack_a, int *temp_array)
+{
+	t_dllist_node	*current_node;
+	unsigned int			i;
+
+	current_node = ft_dllist_first(stack_a);
+	while (current_node != stack_a->sentinel_node)
 	{
-		j = 0;
-		while (j < stacks->stack_a->total_nodes)
+		i = 0;
+		while (i < stack_a->total_nodes)
 		{
-			if (current_node->val == new_stack[j])
+			if (current_node->val == temp_array[i])
 			{
-				current_node->val = j;
-				if (stacks->stack_a->biggest_abs_number < j)
-					stacks->stack_a->biggest_abs_number = j;
+				current_node->val = i;
+				if (stack_a->biggest_number < i)
+					stack_a->biggest_number = i;
 			}
-			++j;
+			++i;
 		}
 		current_node = ft_dllist_next(current_node);
 	}
-	width = ft_width(stacks->stack_a->biggest_abs_number);
-	free(new_stack);
-///////////////////////
-	current_bit = 0;
-	while (current_bit < width)
-		ft_sort_bit_x(stacks, current_bit++, 1);
 }
 
-static void	ft_sort_bit_x(t_stacks *s_stacks, int bit, int number_sign)
+static void	ft_sort_bit_x(t_stacks *s_stacks, int bit)
 {
 	t_dllist	*stack_a;
 	t_dllist	*stack_b;
@@ -109,7 +89,7 @@ static void	ft_sort_bit_x(t_stacks *s_stacks, int bit, int number_sign)
 	nodes_count_stack_a = stack_a->total_nodes;
 	while (nodes_count_stack_a--)
 	{
-		if ((((ft_dllist_first(stack_a)->val) >> bit) & 1) == number_sign)
+		if (((((unsigned int)ft_dllist_first(stack_a)->val) >> bit) & 1) == 1)
 			ft_ra(stack_a, stack_b);
 		else
 			ft_pb(stack_a, stack_b);
@@ -118,11 +98,6 @@ static void	ft_sort_bit_x(t_stacks *s_stacks, int bit, int number_sign)
 		ft_pa(stack_a, stack_b);
 }
 
-/*
- *	special case:
- *	this function return 31 when number is 1 bigger than INT_MAX,
- *	because we don't need more than that for radix_sort.
-*/
 static int	ft_width(unsigned int number)
 {
 	int	count;
