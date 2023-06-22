@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:55:25 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/22 14:21:43 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:38:27 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ t_dllist_node	*ft_dllist_append(t_dllist *dllist, int val);
  *	SORTING FUNCTIONS
 */
 /*	SORT	*/
-void    		ft_sort(t_stacks *stacks);
+void			ft_sort(t_stacks *stacks);
 /*	RADIX_SORT	*/
 void			ft_radix_sort(t_stacks *stacks);
 /*	SORT_SMALL_LISTS	*/
-void    		ft_sort_list_up_to_3(t_dllist *stack_a);
-void    		ft_sort_list_up_to_5(t_dllist *stack_a, t_dllist *stack_b);
+void			ft_sort_list_up_to_3(t_dllist *stack_a);
+void			ft_sort_list_up_to_5(t_dllist *stack_a, t_dllist *stack_b);
 /*	SORT_UTILS	*/
 bool			ft_stack_is_sorted(t_dllist *stack_a);
 

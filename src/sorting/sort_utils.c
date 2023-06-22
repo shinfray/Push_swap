@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:03:09 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/22 12:09:38 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:37:47 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	ft_stack_is_sorted(t_dllist *stack_a);
 
-bool    ft_stack_is_sorted(t_dllist *stack_a)
+bool	ft_stack_is_sorted(t_dllist *stack_a)
 {
 	t_dllist_node	*current_node;
 	t_dllist_node	*next_node;
