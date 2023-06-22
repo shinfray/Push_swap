@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 22:12:05 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/22 16:23:22 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:59:47 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int comparator (const void * p1, const void * p2)
 */
 void	ft_radix_sort(t_stacks *stacks)
 {
-	const int	width = ft_width(stacks->stack_a->biggest_abs_number);
+	int	width;
 	int			current_bit;
 
 //////////
@@ -73,9 +73,6 @@ void	ft_radix_sort(t_stacks *stacks)
 	}
 	qsort(new_stack, stacks->stack_a->total_nodes, sizeof(*new_stack), comparator);
 	i = 0;
-	while (i < stacks->stack_a->total_nodes)
-		printf("array: %d\n", new_stack[i++]);
-	i = 0;
 	size_t	j = 0;
 	current_node = ft_dllist_first(stacks->stack_a);
 	while (current_node != stacks->stack_a->sentinel_node)
@@ -84,12 +81,16 @@ void	ft_radix_sort(t_stacks *stacks)
 		while (j < stacks->stack_a->total_nodes)
 		{
 			if (current_node->val == new_stack[j])
+			{
 				current_node->val = j;
+				if (stacks->stack_a->biggest_abs_number < j)
+					stacks->stack_a->biggest_abs_number = j;
+			}
 			++j;
 		}
 		current_node = ft_dllist_next(current_node);
 	}
-	ft_print_stack2(stacks->stack_a, stacks->stack_b);
+	width = ft_width(stacks->stack_a->biggest_abs_number);
 	free(new_stack);
 ///////////////////////
 	current_bit = 0;
