@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 22:12:05 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/22 17:21:48y shinfray         ###   ########.fr       */
+/*   Created: 2023/06/22 18:04:18 by shinfray          #+#    #+#             */
+/*   Updated: 2023/06/22 18:06:32 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	ft_sort_bit_x(t_stacks *s_stacks, int bit);
 static int	ft_width(unsigned int number);
 
 #include <stdio.h>
-int comparator (const void * p1, const void * p2)
+int	ft_comparator(const void *p1, const void *p2)
 {
-  return (*(int*)p1 - *(int*)p2);
+	return (*(int *)p1 - *(int *)p2);
 }
 
 int	ft_radix_sort(t_stacks *stacks)
@@ -34,7 +34,7 @@ int	ft_radix_sort(t_stacks *stacks)
 	if (temp_array == NULL)
 		return (-1);
 	ft_fill_temp_array(stacks->stack_a, temp_array);
-	qsort(temp_array, stacks->stack_a->total_nodes, sizeof(*temp_array), comparator);
+	qsort(temp_array, stacks->stack_a->total_nodes, sizeof(*temp_array), ft_comparator);
 	ft_fill_array_with_index(stacks->stack_a, temp_array);
 	free(temp_array);
 	width = ft_width(stacks->stack_a->biggest_number);
@@ -59,7 +59,7 @@ static void	ft_fill_temp_array(t_dllist *stack_a, int *temp_array)
 static void	ft_fill_array_with_index(t_dllist *stack_a, int *temp_array)
 {
 	t_dllist_node	*current_node;
-	unsigned int			i;
+	unsigned int	i;
 
 	current_node = ft_dllist_first(stack_a);
 	while (current_node != stack_a->sentinel_node)
