@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 19:08:25 by shinfray          #+#    #+#             */
-/*   Updated: 2023/01/27 00:54:11 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/24 01:13:57 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ char	*ft_gnl_strnjoin(char *s1, const char *s2, size_t n_from_s2_to_copy)
 char	*ft_gnl_strchr(const char *s)
 {
 	while (*s != '\n' && *s != '\0')
-			++s;
+		++s;
 	return ((char *)s);
 }

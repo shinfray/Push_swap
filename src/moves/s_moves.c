@@ -6,20 +6,19 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:03:59 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 12:05:35 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/24 01:19:33 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_sa(t_dllist *stack_a, t_dllist *stack_b);
-void		ft_sb(t_dllist *stack_a, t_dllist *stack_b);
+void		ft_sa(t_dllist *stack_a);
+void		ft_sb(t_dllist *stack_b);
 void		ft_ss(t_dllist *stack_a, t_dllist *stack_b);
 static void	ft_s(t_dllist *stack);
 
-void	ft_sa(t_dllist *stack_a, t_dllist *stack_b)
+void	ft_sa(t_dllist *stack_a)
 {
-	(void)stack_b;
 	if (stack_a->total_nodes > 1)
 	{
 		ft_s(stack_a);
@@ -27,9 +26,8 @@ void	ft_sa(t_dllist *stack_a, t_dllist *stack_b)
 	}
 }
 
-void	ft_sb(t_dllist *stack_a, t_dllist *stack_b)
+void	ft_sb(t_dllist *stack_b)
 {
-	(void)stack_a;
 	if (stack_b->total_nodes > 1)
 	{
 		ft_s(stack_b);

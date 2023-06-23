@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:55:25 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/22 18:47:57 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/24 01:19:49 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,32 +69,35 @@ t_dllist_node	*ft_dllist_append(t_dllist *dllist, int val);
 */
 /*	SORT	*/
 int				ft_sort(t_stacks *stacks);
-/*	RADIX_SORT	*/
-int				ft_radix_sort(t_stacks *stacks);
 /*	SORT_SMALL_LISTS	*/
 void			ft_sort_list_up_to_3(t_dllist *stack_a);
 void			ft_sort_list_up_to_5(t_dllist *stack_a, t_dllist *stack_b);
+/*	RADIX_SORT	*/
+int				ft_radix_sort(t_stacks *stacks);
+/*	QSORT	*/
+void			ft_qsort(int *array, ssize_t start, ssize_t end);
 /*	SORT_UTILS	*/
 bool			ft_stack_is_sorted(t_dllist *stack_a);
-void			ft_qsort(int *array, ssize_t start, ssize_t end);
+int				ft_get_min_value(t_dllist *stack);
+int				ft_get_max_value(t_dllist *stack);
 
 /*
  *	MOVES FUNCTIONS
 */
 /*	S_MOVES SWAP	*/
-void			ft_sa(t_dllist *stack_a, t_dllist *stack_b);
-void			ft_sb(t_dllist *stack_a, t_dllist *stack_b);
+void			ft_sa(t_dllist *stack_a);
+void			ft_sb(t_dllist *stack_b);
 void			ft_ss(t_dllist *stack_a, t_dllist *stack_b);
 /*	P_MOVES PUSH	*/
 void			ft_pa(t_dllist *stack_a, t_dllist *stack_b);
 void			ft_pb(t_dllist *stack_a, t_dllist *stack_b);
 /*	R_MOVES ROTATE	*/
-void			ft_ra(t_dllist *stack_a, t_dllist *stack_b);
-void			ft_rb(t_dllist *stack_a, t_dllist *stack_b);
+void			ft_ra(t_dllist *stack_a);
+void			ft_rb(t_dllist *stack_b);
 void			ft_rr(t_dllist *stack_a, t_dllist *stack_b);
 /*	RR_MOVES REVERSE ROTATE	*/
-void			ft_rra(t_dllist *stack_a, t_dllist *stack_b);
-void			ft_rrb(t_dllist *stack_a, t_dllist *stack_b);
+void			ft_rra(t_dllist *stack_a);
+void			ft_rrb(t_dllist *stack_b);
 void			ft_rrr(t_dllist *stack_a, t_dllist *stack_b);
 
 #endif

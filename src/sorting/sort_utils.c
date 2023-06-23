@@ -6,15 +6,15 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:03:09 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/22 18:50:43 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/24 01:03:03 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool			ft_stack_is_sorted(t_dllist *stack_a);
-void			ft_qsort(int *array, ssize_t start, ssize_t end);
-static ssize_t	ft_partition(int *array, ssize_t start, ssize_t end);
+bool	ft_stack_is_sorted(t_dllist *stack_a);
+int		ft_get_min_value(t_dllist *stack);
+int		ft_get_max_value(t_dllist *stack);
 
 bool	ft_stack_is_sorted(t_dllist *stack_a)
 {
@@ -33,41 +33,34 @@ bool	ft_stack_is_sorted(t_dllist *stack_a)
 	return (true);
 }
 
-void	ft_qsort(int *array, ssize_t start, ssize_t end)
+int	ft_get_min_value(t_dllist *stack)
 {
-	ssize_t	pivot;
+	t_dllist_node	*current_node;
+	int				min;
 
-	if (end <= start)
-		return ;
-	pivot = ft_partition(array, start, end);
-	ft_qsort(array, start, pivot - 1);
-	ft_qsort(array, pivot + 1, end);
+	current_node = ft_dllist_first(stack);
+	min = current_node->val;
+	while (current_node != stack->sentinel_node)
+	{
+		if (min > current_node->val)
+			min = current_node->val;
+		current_node = ft_dllist_next(current_node);
+	}
+	return (min);
 }
 
-static ssize_t	ft_partition(int *array, ssize_t start, ssize_t end)
+int	ft_get_max_value(t_dllist *stack)
 {
-	ssize_t	i;
-	ssize_t	j;
-	int		pivot;
-	int		temp;
+	t_dllist_node	*current_node;
+	int				max;
 
-	pivot = array[end];
-	i = start - 1;
-	j = start;
-	while (j <= end - 1)
+	current_node = ft_dllist_first(stack);
+	max = current_node->val;
+	while (current_node != stack->sentinel_node)
 	{
-		if (array[j] < pivot)
-		{
-			++i;
-			temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
-		}
-		++j;
+		if (max < current_node->val)
+			max = current_node->val;
+		current_node = ft_dllist_next(current_node);
 	}
-	++i;
-	temp = array[i];
-	array[i] = array[end];
-	array[end] = temp;
-	return (i);
+	return (max);
 }

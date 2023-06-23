@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 18:04:18 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/23 12:44:34 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/24 01:20:49 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,6 @@ static void	ft_fill_temp_array(t_dllist *stack_a, int *temp_array);
 static void	ft_fill_array_with_index(t_dllist *stack_a, int *temp_array);
 static void	ft_sort_bit_x(t_stacks *s_stacks, int bit);
 static int	ft_width(unsigned int number);
-
-// #include <stdio.h>
-// int	ft_comparator(const void *p1, const void *p2)
-// {
-// 	return (*(int *)p1 - *(int *)p2);
-// }
-// qsort(temp_array, stacks->stack_a->total_nodes, sizeof(*temp_array),
-//ft_comparator);
 
 int	ft_radix_sort(t_stacks *stacks)
 {
@@ -93,7 +85,7 @@ static void	ft_sort_bit_x(t_stacks *s_stacks, int bit)
 	while (nodes_count_stack_a--)
 	{
 		if (((((unsigned int)ft_dllist_first(stack_a)->val) >> bit) & 1) == 1)
-			ft_ra(stack_a, stack_b);
+			ft_ra(stack_a);
 		else
 			ft_pb(stack_a, stack_b);
 	}

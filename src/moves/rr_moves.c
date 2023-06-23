@@ -6,28 +6,26 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:47:33 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 14:47:36 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/24 01:18:19 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_rra(t_dllist *stack_a, t_dllist *stack_b);
-void		ft_rrb(t_dllist *stack_a, t_dllist *stack_b);
+void		ft_rra(t_dllist *stack_a);
+void		ft_rrb(t_dllist *stack_b);
 void		ft_rrr(t_dllist *stack_a, t_dllist *stack_b);
 static void	ft_reverse_r(t_dllist *stack);
 
-void	ft_rra(t_dllist *stack_a, t_dllist *stack_b)
+void	ft_rra(t_dllist *stack_a)
 {
-	(void)stack_b;
 	if (stack_a->total_nodes > 1)
 		ft_reverse_r(stack_a);
 	ft_putendl_fd("rra", STDOUT_FILENO);
 }
 
-void	ft_rrb(t_dllist *stack_a, t_dllist *stack_b)
+void	ft_rrb(t_dllist *stack_b)
 {
-	(void)stack_a;
 	if (stack_b->total_nodes > 1)
 		ft_reverse_r(stack_b);
 	ft_putendl_fd("rrb", STDOUT_FILENO);
