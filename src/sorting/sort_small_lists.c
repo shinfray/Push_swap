@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:50:56 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/23 12:59:44 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:00:39 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,42 @@ void	ft_sort_list_up_to_3(t_dllist *stack_a)
 // 	}
 // }
 
+static int	ft_get_min(t_dllist *stack_a)
+{
+	t_dllist_node	*current_node;
+	int	min;
+
+	min = 0;
+	current_node = ft_dllist_first(stack_a);
+	while (current_node != stack_a->sentinel_node)
+	{
+		if (min > current_node->val)
+			min = current_node->val;
+		current_node = ft_dllist_next(current_node);
+	}
+	return (min);
+}
+
+static int	ft_get_max(t_dllist *stack_a)
+{
+	t_dllist_node	*current_node;
+	int	max;
+
+	max = 0;
+	current_node = ft_dllist_first(stack_a);
+	while (current_node != stack_a->sentinel_node)
+	{
+		if (max > current_node->val)
+			max = current_node->val;
+		current_node = ft_dllist_next(current_node);
+	}
+	return (max);
+}
 
 void	ft_sort_list_up_to_5(t_dllist *stack_a, t_dllist *stack_b)
 {
-	// int	min;
-	// int	max;
+	const int	min = ft_get_min(stack_a);
+	const int	max = ft_get_max(stack_a);
 
 	while (stack_a->total_nodes > 3)
 		ft_pb(stack_a, stack_b);
