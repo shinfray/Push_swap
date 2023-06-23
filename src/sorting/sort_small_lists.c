@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:50:56 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/23 15:26:44 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/23 18:56:06 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_sort_list_up_to_3(t_dllist *stack_a)
 // 	}
 // }
 
-static int	ft_get_min(t_dllist *stack_a)
+static int	ft_get_min_value(t_dllist *stack_a)
 {
 	t_dllist_node	*current_node;
 	int	min;
@@ -87,7 +87,7 @@ static int	ft_get_min(t_dllist *stack_a)
 	return (min);
 }
 
-static int	ft_get_max(t_dllist *stack_a)
+static int	ft_get_max_value(t_dllist *stack_a)
 {
 	t_dllist_node	*current_node;
 	int	max;
@@ -103,38 +103,67 @@ static int	ft_get_max(t_dllist *stack_a)
 	return (max);
 }
 
+unsigned int	ft_get_value_index(t_dllist *stack, int n)
+{
+	t_dllist_node	*current_node;
+	unsigned int	i;
+
+	current_node = ft_dllist_first(stack);
+	i = 0;
+	while (current_node->val != n)
+	{
+		current_node = ft_dllist_next(current_node);
+		++i;
+	}
+	return (i);
+}
+
+unsigned int	ft_get_desired_index_in_stack_a(t_dllist *stack_a, int n)
+{
+	int		min_value;
+	int		max_value;
+	int		i;
+	t_list	*temp;
+
+	if (n < ft_dllist_first(stack_a)->val && n > ft_dllist_last(stack_a)->val)
+		return (0);
+	min_value = ft_get_min_value(stack_a);
+	max_value = ft_get_max_value(stack_a);
+	if (n > max_value || n < min_value)
+		return (ft_get_value_index(stack_a, min_value));
+	//here!
+	i = ft_get_value_index(s);
+	tmp = ft_lstget_nth(a, i);
+	while (tmp && n > tmp->value)
+	{
+		++i;
+		tmp = tmp->next;
+	}
+	if (!tmp)
+		return (sub_go_to_a_at(n, a));
+	return (i);	
+
+
+
+
+}
+
 void	ft_sort_list_up_to_5(t_dllist *stack_a, t_dllist *stack_b)
 {
-	const int	min = ft_get_min(stack_a);
-	const int	max = ft_get_max(stack_a);
-
 	while (stack_a->total_nodes > 3)
 		ft_pb(stack_a, stack_b);
 	if (ft_stack_is_sorted(stack_a) == false)
 		ft_sort_list_up_to_3(stack_a);
 
 
-	if (ft_dllist_is_empty(stack_b) == false)
+	while (ft_dllist_is_empty(stack_b) == false)
 	{
-		if (ft_dllist_first(stack_b)->val < ft_dllist_first(stack_a)->val)
-			ft_pa(stack_a, stack_b);
-		else if (ft_dllist_first(stack_b)->val > ft_dllist_last(stack_a)->val)
-		{
-			ft_pa(stack_a, stack_b);
-			// ft_ra(stack_a, stack_b);
-		}
-		else
-		{
-			if (ft_dllist_first(stack_b)->val < ft_dllist_next(ft_dllist_first(stack_a))->val)
-			{
-				ft_pa(stack_a, stack_b);
-				ft_sa(stack_a, stack_b);
-			}
-			else
-			{
-				ft_rra(stack_a, stack_b);
-				ft_pa(stack_a, stack_b);
-			}
-		}
+		//get index goal of the top stack b to stack a;
+		
+		// calculate if ra or rra;
+
+		// push to a;
+
 	}
+	//roll the stack to get min on thop;
 }
