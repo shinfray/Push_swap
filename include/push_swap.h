@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:55:25 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/24 17:08:51 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/24 19:50:14 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ typedef struct stacks
 
 typedef struct choice
 {
-	void	(*fun)(t_dllist *, t_dllist *, int, int);
-	int		steps;
-	int		from;
-	int		to;
+	void			(*fun)(t_dllist *, t_dllist *, unsigned int, unsigned int);
+	long int		steps;
+	unsigned int	from;
+	unsigned int	to;
 }				t_choice;
 
 /*

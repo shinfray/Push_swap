@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:50:56 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/24 18:55:08 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/24 19:52:07 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,49 @@ static unsigned int	ft_get_value_index(t_dllist *stack, int n);
 static void			ft_do_ra_or_rra(t_dllist *stack, unsigned int i);
 
 
+static void	ft_do_r_rr(t_dllist *stack_a, t_dllist *stack_b, unsigned int index_a, unsigned int index_b)
+{
+	while (index_a > 0 && index_b > 0)
+	{
+		ft_rr(stack_a, stack_b);
+		--index_a;
+		--index_b;
+	}
+	while (index_a-- > 0)
+		ft_ra(stack_a);
+	while (index_b-- > 0)
+		ft_rb(stack_b);
+}
 
+static void	ft_do_rr_rrr(t_dllist *stack_a, t_dllist *stack_b, unsigned int index_a, unsigned int index_b)
+{
+	while (index_a > 0 && index_b > 0)
+	{
+		ft_rrr(stack_a, stack_b);
+		--index_a;
+		--index_b;
+	}
+	while (index_a-- > 0)
+		ft_rra(stack_a);
+	while (index_b-- > 0)
+		ft_rrb(stack_b);
+}
+
+void	ft_do_ra_rrb(t_dllist *stack_a, t_dllist *stack_b, unsigned int index_a, unsigned int index_b)
+{
+	while (index_a-- > 0)
+		ft_ra(stack_a);
+	while (index_b++ < stack_b->total_nodes)
+		ft_rrb(stack_b);
+}
+
+void	ft_do_rra_rb(t_dllist *stack_a, t_dllist *stack_b, unsigned int index_a, unsigned int index_b)
+{
+	while (index_a++ < stack_a->total_nodes)
+		ft_rra(stack_a);
+	while (index_b-- > 0)
+		ft_rb(stack_b);
+}
 
 static unsigned int	ft_max(unsigned int a, unsigned int b)
 {
@@ -34,7 +76,7 @@ static void	ft_apply_r_rr(t_choice *choice, unsigned int index_a, unsigned int i
 	choice->steps = steps;
 	choice->from = index_a;
 	choice->to = index_b;
-	//choice->fun = 
+	choice->fun = &ft_do_r_rr;
 }
 
 static void	ft_apply_rr_rrr(t_choice *choice, unsigned int index_a, unsigned int index_b, unsigned int steps)
@@ -42,7 +84,7 @@ static void	ft_apply_rr_rrr(t_choice *choice, unsigned int index_a, unsigned int
 	choice->steps = steps;
 	choice->from = index_a;
 	choice->to = index_b;
-	//choice->fun = 
+	choice->fun = &ft_do_rr_rrr;
 }
 
 static void	ft_apply_ra_rrb(t_choice *choice, unsigned int index_a, unsigned int index_b, unsigned int steps)
@@ -50,7 +92,7 @@ static void	ft_apply_ra_rrb(t_choice *choice, unsigned int index_a, unsigned int
 	choice->steps = steps;
 	choice->from = index_a;
 	choice->to = index_b;
-	//choice->fun = 
+	choice->fun = &ft_do_ra_rrb;
 }
 
 static void	ft_apply_rra_rb(t_choice *choice, unsigned int index_a, unsigned int index_b, unsigned int steps)
@@ -58,13 +100,12 @@ static void	ft_apply_rra_rb(t_choice *choice, unsigned int index_a, unsigned int
 	choice->steps = steps;
 	choice->from = index_a;
 	choice->to = index_b;
-	//choice->fun = 
+	choice->fun = &ft_do_rra_rb;
 }
 
 static void	ft_choose_a_and_b(t_dllist *stack_a, t_dllist *stack_b, t_choice *choice)
 {
 	t_dllist_node	*current_node;
-	unsigned int	steps;
 	unsigned int	index_a;
 	unsigned int	index_b;
 
@@ -74,14 +115,14 @@ static void	ft_choose_a_and_b(t_dllist *stack_a, t_dllist *stack_b, t_choice *ch
 	while (current_node != stack_a->sentinel_node)
 	{
 		index_b = ft_get_desired_index_to_b(stack_b, current_node->val);
-		if (choice->steps == -1 || steps > ft_max(index_a, index_b))
-			ft_apply_r_rr(choice, index_a, index_b, steps);
+		if (choice->steps == -1 || choice->steps > ft_max(index_a, index_b))
+			ft_apply_r_rr(choice, index_a, index_b, ft_max(index_a, index_b));
 		if (choice->steps > ft_max(stack_a->total_nodes - index_a, stack_b->total_nodes - index_b))
-			ft_apply_rr_rrr(choice, index_a, index_b, steps);
+			ft_apply_rr_rrr(choice, index_a, index_b, ft_max(stack_a->total_nodes - index_a, stack_b->total_nodes - index_b));
 		if (choice->steps > index_a + stack_b->total_nodes - index_b)
-			ft_apply_ra_rrb(choice, index_a, index_b, steps);
+			ft_apply_ra_rrb(choice, index_a, index_b, index_a + stack_b->total_nodes - index_b);
 		if (choice->steps > index_b + stack_a->total_nodes - index_a)
-			ft_apply_rra_rb(choice, index_a, index_b, steps);
+			ft_apply_rra_rb(choice, index_a, index_b, index_b + stack_a->total_nodes - index_a);
 		current_node = ft_dllist_next(current_node);
 		++index_a;
 	}
@@ -98,7 +139,7 @@ void	ft_sort(t_dllist *stack_a, t_dllist *stack_b)
 		return ;
 	while (stack_a->total_nodes > 3)
 	{
-		//check best a and best place, fill the t_choice (arg : stacka, stackb, &s_choice)
+		ft_choose_a_and_b(stack_a, stack_b, &s_choice);
 		s_choice.fun(stack_a, stack_b, s_choice.from, s_choice.to);
 		ft_pb(stack_a, stack_b);
 	}
