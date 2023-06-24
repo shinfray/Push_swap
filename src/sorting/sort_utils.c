@@ -6,15 +6,16 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:03:09 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/24 01:03:03 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/25 01:12:48 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	ft_stack_is_sorted(t_dllist *stack_a);
-int		ft_get_min_value(t_dllist *stack);
-int		ft_get_max_value(t_dllist *stack);
+bool			ft_stack_is_sorted(t_dllist *stack_a);
+int				ft_get_min_value(t_dllist *stack);
+int				ft_get_max_value(t_dllist *stack);
+unsigned int	ft_max(unsigned int a, unsigned int b);
 
 bool	ft_stack_is_sorted(t_dllist *stack_a)
 {
@@ -63,4 +64,11 @@ int	ft_get_max_value(t_dllist *stack)
 		current_node = ft_dllist_next(current_node);
 	}
 	return (max);
+}
+
+unsigned int	ft_max(unsigned int a, unsigned int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
 }
