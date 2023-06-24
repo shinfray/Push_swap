@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:50:56 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/24 13:45:42 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/24 14:08:31 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static unsigned int	ft_get_value_index(t_dllist *stack, int n)
 
 static void	ft_do_ra_or_rra(t_dllist *stack, unsigned int i)
 {
-	if (stack->total_nodes - stack->total_nodes + i <= stack->total_nodes / 2)
+	if (i <= stack->total_nodes / 2)
 		while (i-- > 0)
 			ft_ra(stack);
 	else
