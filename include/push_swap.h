@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:55:25 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/24 01:19:49 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/24 17:08:51 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ typedef struct stacks
 	t_dllist	*stack_a;
 	t_dllist	*stack_b;
 }				t_stacks;
+
+typedef struct choice
+{
+	void	(*fun)(t_dllist *, t_dllist *, int, int);
+	int		steps;
+	int		from;
+	int		to;
+}				t_choice;
 
 /*
  *	INITIALIZATION_CLOSURE FUNCTIONS
@@ -68,10 +76,9 @@ t_dllist_node	*ft_dllist_append(t_dllist *dllist, int val);
  *	SORTING FUNCTIONS
 */
 /*	SORT	*/
-int				ft_sort(t_stacks *stacks);
 /*	SORT_SMALL_LISTS	*/
+void			ft_sort(t_dllist *stack_a, t_dllist *stack_b);
 void			ft_sort_list_up_to_3(t_dllist *stack_a);
-void			ft_sort_list_up_to_5(t_dllist *stack_a, t_dllist *stack_b);
 /*	RADIX_SORT	*/
 int				ft_radix_sort(t_stacks *stacks);
 /*	QSORT	*/

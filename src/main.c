@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 09:41:12 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/24 00:46:37 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/24 16:35:04 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ int	main(int argc, char **argv)
 	if (argc < 2 || ft_initialize_stacks(&s_stacks) == -1)
 		return (ft_exit_push_swap(EXIT_FAILURE));
 	nums = ft_check_args_format(argc, argv);
-	if (ft_retrieve_args(s_stacks.stack_a, nums) != NULL \
-		&& ft_sort(&s_stacks) == 0)
+	if (ft_retrieve_args(s_stacks.stack_a, nums) != NULL)
+	{
+		ft_sort(s_stacks.stack_a, s_stacks.stack_b);
 		exit_status = EXIT_SUCCESS;
+	}
 	else
 		exit_status = EXIT_FAILURE;
 	ft_free_push_swap(&s_stacks, nums, argv);
