@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:50:56 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/24 01:22:02 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/24 13:38:46 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,31 +40,17 @@ void	ft_sort_list_up_to_5(t_dllist *stack_a, t_dllist *stack_b)
 
 void	ft_sort_list_up_to_3(t_dllist *stack_a)
 {
-	int	a;
-	int	b;
-	int	c;
+	const int	min_value = ft_get_min_value(stack_a);
+	const int	max_value = ft_get_max_value(stack_a);
 
-	a = ft_dllist_first(stack_a)->val;
-	b = ft_dllist_next(ft_dllist_first(stack_a))->val;
-	c = ft_dllist_last(stack_a)->val;
-	if (stack_a->total_nodes == 2)
-		ft_sa(stack_a);
-	else if (a > b && b < c && c < a)
+	if (ft_dllist_first(stack_a)->val == max_value)
 		ft_ra(stack_a);
-	else if (a < b && b > c && c < a)
+	if (stack_a->total_nodes != 3 || ft_stack_is_sorted(stack_a) == true)
+		return ;
+	if (ft_dllist_next(ft_dllist_first(stack_a))->val == max_value)
 		ft_rra(stack_a);
-	else
-	{
+	if (ft_dllist_next(ft_dllist_first(stack_a))->val == min_value)
 		ft_sa(stack_a);
-		if (ft_stack_is_sorted(stack_a) == true)
-			return ;
-		a = ft_dllist_first(stack_a)->val;
-		b = ft_dllist_next(ft_dllist_first(stack_a))->val;
-		if (a > b)
-			ft_ra(stack_a);
-		else
-			ft_rra(stack_a);
-	}
 }
 
 static unsigned int	ft_get_desired_index(t_dllist *stack, int n)
