@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:04:24 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/22 17:09:42 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/24 23:51:19 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ int	ft_atoi_push_swap(const char *str, bool *error_status)
 
 	n = 0;
 	sign = 1;
-	save = str;
 	if (*str == '+' || *str == '-')
 		if (*str++ == '-')
 			sign = -1;
+	save = str;
 	while (ft_isdigit(*str) != 0)
 	{
 		n = n * 10 + *str - '0';
