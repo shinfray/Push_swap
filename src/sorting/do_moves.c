@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 01:14:01 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/25 01:30:17 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/25 01:51:56by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_do_r_rr(t_dllist *stack_a, t_dllist *stack_b, unsigned int index_a, unsi
 
 void	ft_do_rr_rrr(t_dllist *stack_a, t_dllist *stack_b, unsigned int index_a, unsigned int index_b)
 {
-	while (index_a < stack_a->total_nodes && index_b < stack_b->total_nodes )
+	while (index_a < stack_a->total_nodes && index_b < stack_b->total_nodes)
 	{
 		ft_rrr(stack_a, stack_b);
 		++index_a;

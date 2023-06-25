@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:50:56 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/25 01:44:44 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/25 02:08:44 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ void	ft_sort(t_dllist *stack_a, t_dllist *stack_b)
 	t_choice		s_choice;
 	unsigned int	i;
 
+	s_choice.stack_a = stack_a;
+	s_choice.stack_b = stack_b;
 	if (ft_stack_is_sorted(stack_a) == true)
 		return ;
 	while (stack_a->total_nodes > 3)
 	{
 		if (ft_dllist_is_empty(stack_b) == false)
-		{	
+		{
 			ft_choose_moves_to_b(stack_a, stack_b, &s_choice);
 			s_choice.fun(stack_a, stack_b, s_choice.from, s_choice.to);
 		}
@@ -62,7 +64,7 @@ static void	ft_roll_stack_a(t_dllist *stack_a)
 {
 	int				min_value;
 	unsigned int	index;
-	
+
 	if (ft_stack_is_sorted(stack_a) == true)
 		return ;
 	min_value = ft_get_min_value(stack_a);
