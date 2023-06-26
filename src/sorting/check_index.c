@@ -6,17 +6,17 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 01:25:30 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/25 01:51:16 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:13:39 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-unsigned int	ft_get_desired_index_to_a(t_dllist *stack, int n);
-unsigned int	ft_get_desired_index_to_b(t_dllist *stack, int n);
+unsigned int	ft_correct_pos_a(t_dllist *stack, int n);
+unsigned int	ft_correct_pos_b(t_dllist *stack, int n);
 unsigned int	ft_get_value_index(t_dllist *stack, int n);
 
-unsigned int	ft_get_desired_index_to_a(t_dllist *stack, int n)
+unsigned int	ft_correct_pos_a(t_dllist *stack, int n)
 {
 	t_dllist_node	*temp;
 	int				min_value;
@@ -44,7 +44,7 @@ unsigned int	ft_get_desired_index_to_a(t_dllist *stack, int n)
 	return (i);
 }
 
-unsigned int	ft_get_desired_index_to_b(t_dllist *stack, int n)
+unsigned int	ft_correct_pos_b(t_dllist *stack, int n)
 {
 	t_dllist_node	*temp;
 	int				max_value;

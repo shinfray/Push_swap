@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 02:19:40 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 12:06:19 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:17:27 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ typedef struct choice
 
 typedef struct pos
 {
-	unsigned int	 pos_a;
-	unsigned int	 pos_b;
-	unsigned int	 size_a;
-	unsigned int	 size_b;
+	unsigned int	pos_a;
+	unsigned int	pos_b;
+	unsigned int	size_a;
+	unsigned int	size_b;
 }				t_pos;
 
 /*
@@ -38,8 +38,8 @@ typedef struct pos
 void			ft_sort(t_stacks *stacks);
 void			ft_sort_list_up_to_3(t_dllist *stack_a);
 /*	CHECK_INDEX	*/
-unsigned int	ft_get_desired_index_to_a(t_dllist *stack, int n);
-unsigned int	ft_get_desired_index_to_b(t_dllist *stack, int n);
+unsigned int	ft_correct_pos_a(t_dllist *stack, int n);
+unsigned int	ft_correct_pos_b(t_dllist *stack, int n);
 unsigned int	ft_get_value_index(t_dllist *stack, int n);
 /*	CHOOSE_MOVES_TO_B	*/
 void			ft_choose_moves_to_b(t_stacks *stacks, t_choice *choice);

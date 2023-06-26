@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 11:41:32 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 11:53:10 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:15:17 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	ft_do_r_rr(t_stacks *stacks, t_choice s_choice)
 
 void	ft_do_rr_rrr(t_stacks *stacks, t_choice s_choice)
 {
-	while (s_choice.from < stacks->stack_a->total_nodes && s_choice.to < stacks->stack_b->total_nodes)
+	while (s_choice.from < stacks->stack_a->total_nodes \
+			&& s_choice.to < stacks->stack_b->total_nodes)
 	{
 		ft_rrr(stacks->stack_a, stacks->stack_b);
 		++s_choice.from;

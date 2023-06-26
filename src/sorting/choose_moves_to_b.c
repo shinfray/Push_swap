@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 01:18:01 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 11:55:48 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:13:39 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_choose_moves_to_b(t_stacks *stacks, t_choice *choice)
 	current_node = ft_dllist_first(stacks->stack_a);
 	while (current_node != stacks->stack_a->sentinel_node)
 	{
-		s_pos.pos_b = ft_get_desired_index_to_b(stacks->stack_b, current_node->val);
+		s_pos.pos_b = ft_correct_pos_b(stacks->stack_b, current_node->val);
 		ft_check_steps(choice, &s_pos);
 		current_node = ft_dllist_next(current_node);
 		++s_pos.pos_a;

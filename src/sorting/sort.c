@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:50:56 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 12:06:32 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:14:57 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	ft_sort(t_stacks *stacks)
 		ft_sort_list_up_to_3(stacks->stack_a);
 	while (ft_dllist_is_empty(stacks->stack_b) == false)
 	{
-		i = ft_get_desired_index_to_a(stacks->stack_a, ft_dllist_first(stacks->stack_b)->val);
+		i = ft_correct_pos_a(stacks->stack_a, \
+			ft_dllist_first(stacks->stack_b)->val);
 		ft_do_ra_or_rra(stacks->stack_a, i);
 		ft_pa(stacks->stack_a, stacks->stack_b);
 	}
