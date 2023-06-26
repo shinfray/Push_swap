@@ -6,11 +6,12 @@
 #    By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 16:37:12 by shinfray          #+#    #+#              #
-#    Updated: 2023/06/26 18:49:27 by shinfray         ###   ########.fr        #
+#    Updated: 2023/06/27 00:17:49 by shinfray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .DELETE_ON_ERROR:
+.SILENT:
 
 NAME:=	libft.a
 
