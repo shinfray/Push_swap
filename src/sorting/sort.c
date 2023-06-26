@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:50:56 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 11:40:19 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 11:45:47 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	ft_sort(t_dllist *stack_a, t_dllist *stack_b)
 	t_choice		s_choice;
 	unsigned int	i;
 
-	s_choice.stack_a = stack_a;
-	s_choice.stack_b = stack_b;
 	if (ft_stack_is_sorted(stack_a) == true)
 		return ;
 	while (stack_a->total_nodes > 3)
