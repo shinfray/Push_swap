@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 02:19:40 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/25 02:22:13 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 10:35:13 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ typedef struct choice
 	unsigned int	from;
 	unsigned int	to;
 }				t_choice;
+
+typedef struct pos
+{
+	unsigned int	 pos_a;
+	unsigned int	 pos_b;
+	unsigned int	 size_a;
+	unsigned int	 size_b;
+}				t_pos;
 
 /*
  *	SORTING FUNCTIONS
