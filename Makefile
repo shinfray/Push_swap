@@ -6,7 +6,7 @@
 #    By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 17:10:39 by shinfray          #+#    #+#              #
-#    Updated: 2023/06/26 10:43:58 by shinfray         ###   ########.fr        #
+#    Updated: 2023/06/26 11:29:06 by shinfray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS_PUSH_SWAP:=	main \
 					sorting/sort \
 					sorting/check_index \
 					sorting/choose_moves_to_b \
+					sorting/set_moves \
 					sorting/do_moves \
 					sorting/sort_utils
 
