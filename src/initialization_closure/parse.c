@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:04:24 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/24 23:51:19 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 14:32:28 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,20 @@ t_dllist	*ft_retrieve_args(t_dllist *dllist, char **args_list)
 	bool	status_ft_atoi_push_swap;
 	int		temp;
 
-	if (args_list == NULL || *args_list == NULL)
+	if (args_list == NULL)
 		return (NULL);
 	while (*args_list != NULL)
 	{
-		temp = ft_atoi_push_swap(*args_list++, &status_ft_atoi_push_swap);
-		if (status_ft_atoi_push_swap == EXIT_FAILURE \
-			|| ft_is_duplicate_number(dllist, temp) == true \
-			|| ft_dllist_append(dllist, temp) == NULL)
-			return (NULL);
-		dllist->total_nodes++;
+		if (**args_list != '\0')
+		{
+			temp = ft_atoi_push_swap(*args_list, &status_ft_atoi_push_swap);
+			if (status_ft_atoi_push_swap == EXIT_FAILURE \
+				|| ft_is_duplicate_number(dllist, temp) == true \
+				|| ft_dllist_append(dllist, temp) == NULL)
+				return (NULL);
+			dllist->total_nodes++;
+		}
+		++args_list;
 	}
 	return (dllist);
 }
