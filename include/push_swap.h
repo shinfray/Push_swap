@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 02:25:01 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/25 02:25:08 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:02:03 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@
 # include "libft.h"
 # include "moves.h"
 # include "sorting.h"
-
-typedef struct stacks
-{
-	t_dllist	*stack_a;
-	t_dllist	*stack_b;
-}				t_stacks;
 
 /*
  *	INITIALIZATION_CLOSURE FUNCTIONS

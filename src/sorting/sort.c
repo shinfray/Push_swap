@@ -6,41 +6,41 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:50:56 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 11:45:47 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:06:32 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_sort(t_dllist *stack_a, t_dllist *stack_b);
+void		ft_sort(t_stacks *stacks);
 void		ft_sort_list_up_to_3(t_dllist *stack_a);
 static void	ft_roll_stack_a(t_dllist *stack_a);
 
-void	ft_sort(t_dllist *stack_a, t_dllist *stack_b)
+void	ft_sort(t_stacks *stacks)
 {
 	t_choice		s_choice;
 	unsigned int	i;
 
-	if (ft_stack_is_sorted(stack_a) == true)
+	if (ft_stack_is_sorted(stacks->stack_a) == true)
 		return ;
-	while (stack_a->total_nodes > 3)
+	while (stacks->stack_a->total_nodes > 3)
 	{
-		if (ft_dllist_is_empty(stack_b) == false)
+		if (ft_dllist_is_empty(stacks->stack_b) == false)
 		{
-			ft_choose_moves_to_b(stack_a, stack_b, &s_choice);
-			s_choice.fun(stack_a, stack_b, s_choice);
+			ft_choose_moves_to_b(stacks, &s_choice);
+			s_choice.fun(stacks, s_choice);
 		}
-		ft_pb(stack_a, stack_b);
+		ft_pb(stacks->stack_a, stacks->stack_b);
 	}
-	if (ft_stack_is_sorted(stack_a) == false)
-		ft_sort_list_up_to_3(stack_a);
-	while (ft_dllist_is_empty(stack_b) == false)
+	if (ft_stack_is_sorted(stacks->stack_a) == false)
+		ft_sort_list_up_to_3(stacks->stack_a);
+	while (ft_dllist_is_empty(stacks->stack_b) == false)
 	{
-		i = ft_get_desired_index_to_a(stack_a, ft_dllist_first(stack_b)->val);
-		ft_do_ra_or_rra(stack_a, i);
-		ft_pa(stack_a, stack_b);
+		i = ft_get_desired_index_to_a(stacks->stack_a, ft_dllist_first(stacks->stack_b)->val);
+		ft_do_ra_or_rra(stacks->stack_a, i);
+		ft_pa(stacks->stack_a, stacks->stack_b);
 	}
-	ft_roll_stack_a(stack_a);
+	ft_roll_stack_a(stacks->stack_a);
 }
 
 void	ft_sort_list_up_to_3(t_dllist *stack_a)

@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 09:41:12 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/25 02:27:09 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:04:01 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	nums = ft_check_args_format(argc, argv);
 	if (ft_retrieve_args(s_stacks.stack_a, nums) != NULL)
 	{
-		ft_sort(s_stacks.stack_a, s_stacks.stack_b);
+		ft_sort(&s_stacks);
 		exit_status = EXIT_SUCCESS;
 	}
 	else
