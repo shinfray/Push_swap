@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 01:18:01 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 10:53:54 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 11:18:12 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,22 @@ static void	ft_apply_rr_rrr(t_choice *choice, unsigned int index_a, unsigned int
 static void	ft_apply_ra_rrb(t_choice *choice, unsigned int index_a, unsigned int index_b, unsigned int steps);
 static void	ft_apply_rra_rb(t_choice *choice, unsigned int index_a, unsigned int index_b, unsigned int steps);
 
-static void	ft_check_steps(t_choice *choice, t_pos *s_pos)
+static void	ft_check_steps(t_choice *choice, t_pos *pos)
 {
-	const unsigned int	pos_a = s_pos->pos_a;
-	const unsigned int	pos_b = s_pos->pos_b;
-	const unsigned int	size_a = s_pos->size_a;
-	const unsigned int	size_b = s_pos->size_b;
+	unsigned int		steps;
 
-	if (choice->steps == -1 || choice->steps > ft_max(pos_a, pos_b))
-		ft_apply_r_rr(choice, pos_a, pos_b, ft_max(pos_a, pos_b));
-	if (choice->steps > ft_max(size_a - pos_a, size_b - pos_b))
-		ft_apply_rr_rrr(choice, pos_a, pos_b, ft_max(size_a - pos_a, size_b - pos_b));
-	if (choice->steps > pos_a + size_b - pos_b)
-		ft_apply_ra_rrb(choice, pos_a, pos_b, pos_a + size_b - pos_b);
-	if (choice->steps > pos_b + size_a - pos_a)
-		ft_apply_rra_rb(choice, pos_a, pos_b, pos_b + size_a - pos_a);
+	steps = ft_max(pos->pos_a, pos->pos_b);
+	if (choice->steps == -1 || choice->steps > steps)
+		ft_apply_r_rr(choice, pos->pos_a, pos->pos_b, steps);
+	steps = ft_max(pos->size_a - pos->pos_a, pos->size_b - pos->pos_b);
+	if (choice->steps > steps)
+		ft_apply_rr_rrr(choice, pos->pos_a, pos->pos_b, steps);
+	steps = pos->pos_a + pos->size_b - pos->pos_b;
+	if (choice->steps > steps)
+		ft_apply_ra_rrb(choice, pos->pos_a, pos->pos_b, steps);
+	steps = pos->pos_b + pos->size_a - pos->pos_a;
+	if (choice->steps > steps)
+		ft_apply_rra_rb(choice, pos->pos_a, pos->pos_b, steps);
 }
 
 void	ft_choose_moves_to_b(t_dllist *stack_a, t_dllist *stack_b, t_choice *choice)
