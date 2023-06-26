@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 15:44:12 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 20:03:10 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 20:04:44 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ int	main(int argc, char **argv)
 	if (exit_status == EXIT_SUCCESS)
 	{
 		if (ft_dllist_is_empty(s_stacks.stack_b) == true && ft_stack_is_sorted(s_stacks.stack_a) == true)
-			;
+			ft_putendl_fd("OK", STDOUT_FILENO);
+		else
+			ft_putendl_fd("KO", STDOUT_FILENO);
 	}
 	ft_free_push_swap(&s_stacks, nums, argv);
 	return (ft_exit_push_swap(exit_status));
