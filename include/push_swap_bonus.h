@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 02:25:01 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 19:22:04 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 19:29:52 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <limits.h>
 # include <stdbool.h>
-# include "libft.h"
 # include "push_swap.h"
+# include "get_next_line.h"
 
 void	ft_pa_s(t_dllist *stack_a, t_dllist *stack_b);
 void	ft_pb_s(t_dllist *stack_a, t_dllist *stack_b);

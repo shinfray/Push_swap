@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 15:44:12 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 19:20:07 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 20:03:10 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,11 @@ int	main(int argc, char **argv)
 	}
 	else
 		exit_status = EXIT_FAILURE;
-	if (ft_dllist_is_empty(s_stacks.stack_b) == true && ft_stack_is_sorted(s_stacks.stack_a) == true)
-		ft_putendl_fd("OK", STDOUT_FILENO);
-	else
-		ft_putendl_fd("KO", STDOUT_FILENO);
+	if (exit_status == EXIT_SUCCESS)
+	{
+		if (ft_dllist_is_empty(s_stacks.stack_b) == true && ft_stack_is_sorted(s_stacks.stack_a) == true)
+			;
+	}
 	ft_free_push_swap(&s_stacks, nums, argv);
 	return (ft_exit_push_swap(exit_status));
 }
@@ -67,7 +68,7 @@ int	ft_get_moves(t_dllist *stack_a, t_dllist *stack_b)
 
 int	ft_get_move_index(char *move)
 {
-	const char	*legal_moves[11] = {"sa\n", "sb\n", "ss\n", "pa\n", "pb\n", "ra\n", "rb\n", "rr\n", "rra\n", "rrb\n", "rrr\n"};
+	const char	*legal_moves[12] = {"sa\n", "sb\n", "ss\n", "pa\n", "pb\n", "ra\n", "rb\n", "rr\n", "rra\n", "rrb\n", "rrr\n", NULL};
 	int	i;
 	
 	i = 0;
