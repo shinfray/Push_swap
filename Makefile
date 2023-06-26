@@ -6,7 +6,7 @@
 #    By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 17:10:39 by shinfray          #+#    #+#              #
-#    Updated: 2023/06/26 19:42:49 by shinfray         ###   ########.fr        #
+#    Updated: 2023/06/26 23:52:15 by shinfray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,8 @@ B_SRCS_PUSH_SWAP:=	bonus/main_bonus \
 					bonus/silent_moves/s_moves_bonus \
 					bonus/silent_moves/p_moves_bonus \
 					bonus/silent_moves/r_moves_bonus \
-					bonus/silent_moves/rr_moves_bonus
+					bonus/silent_moves/rr_moves_bonus \
+					bonus/checker_utils
 
 SRCS:=	${addprefix ${SRCS_DIR}/,${addsuffix ${EXT},${SRCS_PUSH_SWAP}}}
 B_SRCS:= ${addprefix ${SRCS_DIR}/,${addsuffix ${EXT},${B_SRCS_PUSH_SWAP}}}
