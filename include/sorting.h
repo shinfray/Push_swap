@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 02:19:40 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 12:26:28 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 13:12:50 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,6 @@ unsigned int	ft_correct_pos_b(t_dllist *stack, int n);
 unsigned int	ft_get_value_index(t_dllist *stack, int n);
 /*	CHOOSE_MOVES_TO_B	*/
 void			ft_choose_moves_to_b(t_stacks *stacks, t_choice *choice);
-/*	SET_MOVES	*/
-void			ft_set_r_rr(t_choice *choice, t_pos *pos, unsigned int steps);
-void			ft_set_rr_rrr(t_choice *choice, t_pos *pos, unsigned int steps);
-void			ft_set_ra_rrb(t_choice *choice, t_pos *pos, unsigned int steps);
-void			ft_set_rra_rb(t_choice *choice, t_pos *pos, unsigned int steps);
 /*	DO_MOVES	*/
 void			ft_do_r_rr(t_stacks *stacks, t_choice *choice);
 void			ft_do_rr_rrr(t_stacks *stacks, t_choice *choice);

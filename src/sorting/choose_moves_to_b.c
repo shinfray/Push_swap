@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 01:18:01 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 12:13:39 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 13:13:57 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void		ft_choose_moves_to_b(t_stacks *stacks, t_choice *choice);
 static void	ft_check_steps(t_choice *choice, t_pos *pos);
+static void	ft_set_mv(t_choice *choice, t_pos *pos, unsigned int steps, int ft);
 
 void	ft_choose_moves_to_b(t_stacks *stacks, t_choice *choice)
 {
@@ -36,18 +37,32 @@ void	ft_choose_moves_to_b(t_stacks *stacks, t_choice *choice)
 
 static void	ft_check_steps(t_choice *choice, t_pos *pos)
 {
-	unsigned int		steps;
+	unsigned int	steps;
 
 	steps = ft_max(pos->pos_a, pos->pos_b);
 	if (choice->steps == -1 || choice->steps > steps)
-		ft_set_r_rr(choice, pos, steps);
+		ft_set_mv(choice, pos, steps, 0);
 	steps = ft_max(pos->size_a - pos->pos_a, pos->size_b - pos->pos_b);
 	if (choice->steps > steps)
-		ft_set_rr_rrr(choice, pos, steps);
+		ft_set_mv(choice, pos, steps, 1);
 	steps = pos->pos_a + pos->size_b - pos->pos_b;
 	if (choice->steps > steps)
-		ft_set_ra_rrb(choice, pos, steps);
+		ft_set_mv(choice, pos, steps, 2);
 	steps = pos->pos_b + pos->size_a - pos->pos_a;
 	if (choice->steps > steps)
-		ft_set_rra_rb(choice, pos, steps);
+		ft_set_mv(choice, pos, steps, 3);
+}
+
+static void	ft_set_mv(t_choice *choice, t_pos *pos, unsigned int steps, int ft)
+{
+	void	(*fun[4])(t_stacks *, t_choice *);
+
+	(fun)[0] = &ft_do_r_rr;
+	(fun)[1] = &ft_do_rr_rrr;
+	(fun)[2] = &ft_do_ra_rrb;
+	(fun)[3] = &ft_do_rra_rb;
+	choice->steps = steps;
+	choice->from = pos->pos_a;
+	choice->to = pos->pos_b;
+	choice->fun = (fun)[ft];
 }
