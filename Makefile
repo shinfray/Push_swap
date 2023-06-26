@@ -6,7 +6,7 @@
 #    By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 17:10:39 by shinfray          #+#    #+#              #
-#    Updated: 2023/06/26 18:18:07 by shinfray         ###   ########.fr        #
+#    Updated: 2023/06/26 19:26:38 by shinfray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,10 @@ B_SRCS_PUSH_SWAP:=	bonus/main_bonus \
 					dllist/dllist_accessor \
 					dllist/dllist_insertion \
 					sorting/sort_utils \
-					bonus/silent_moves/s_moves \
-					bonus/silent_moves/p_moves \
-					bonus/silent_moves/r_moves \
-					bonus/silent_moves/rr_moves
+					bonus/silent_moves/s_moves_bonus \
+					bonus/silent_moves/p_moves_bonus \
+					bonus/silent_moves/r_moves_bonus \
+					bonus/silent_moves/rr_moves_bonus
 
 SRCS:=	${addprefix ${SRCS_DIR}/,${addsuffix ${EXT},${SRCS_PUSH_SWAP}}}
 B_SRCS:= ${addprefix ${SRCS_DIR}/,${addsuffix ${EXT},${B_SRCS_PUSH_SWAP}}}
