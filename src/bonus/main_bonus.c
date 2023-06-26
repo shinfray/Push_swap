@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 15:44:12 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 20:36:47 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/26 20:54:10 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int		ft_get_moves(t_dllist *stack_a, t_dllist *stack_b);
 int		ft_get_move_index(char *move);
 void	ft_execute_move(int index_move, t_dllist *stack_a, t_dllist *stack_b);
+void	ft_print_result(t_stacks *stacks);
 
 int	main(int argc, char **argv)
 {
@@ -27,25 +28,24 @@ int	main(int argc, char **argv)
 	if (ft_initialize_stacks(&s_stacks) == -1)
 		return (ft_exit_push_swap(EXIT_FAILURE));
 	nums = ft_check_args_format(argc, argv);
-	if (ft_retrieve_args(s_stacks.stack_a, nums) != NULL)
-	{
-		if (ft_get_moves(s_stacks.stack_a, s_stacks.stack_b) == -1)
-			exit_status = EXIT_FAILURE;
-		else
-			exit_status = EXIT_SUCCESS;
-	}
+	if (ft_retrieve_args(s_stacks.stack_a, nums) != NULL \
+		&& ft_get_moves(s_stacks.stack_a, s_stacks.stack_b) == 0)
+		exit_status = EXIT_SUCCESS;
 	else
 		exit_status = EXIT_FAILURE;
 	if (exit_status == EXIT_SUCCESS)
-	{
-		if (ft_dllist_is_empty(s_stacks.stack_b) == true \
-			&& ft_stack_is_sorted(s_stacks.stack_a) == true)
-			ft_putendl_fd("OK", STDOUT_FILENO);
-		else
-			ft_putendl_fd("KO", STDOUT_FILENO);
-	}
+		ft_print_result(&s_stacks);
 	ft_free_push_swap(&s_stacks, nums, argv);
 	return (ft_exit_push_swap(exit_status));
+}
+
+void	ft_print_result(t_stacks *stacks)
+{
+	if (ft_dllist_is_empty(stacks->stack_b) == true \
+		&& ft_stack_is_sorted(stacks->stack_a) == true)
+		ft_putendl_fd("OK", STDOUT_FILENO);
+	else
+		ft_putendl_fd("KO", STDOUT_FILENO);
 }
 
 int	ft_get_moves(t_dllist *stack_a, t_dllist *stack_b)
@@ -74,8 +74,8 @@ int	ft_get_move_index(char *move)
 	const char	*legal_moves[12] = {"sa\n", "sb\n", "ss\n", "pa\n", \
 									"pb\n", "ra\n", "rb\n", "rr\n", \
 									"rra\n", "rrb\n", "rrr\n", NULL};
-	int	i;
-	
+	int			i;
+
 	i = 0;
 	while (legal_moves[i] != NULL && ft_strncmp(move, legal_moves[i], 4) != 0)
 		++i;
