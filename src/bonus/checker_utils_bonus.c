@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 23:51:46 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/27 00:13:56 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 10:01:51 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	ft_get_moves(t_dllist *stack_a, t_dllist *stack_b)
 	char		*move;
 	int			move_index;
 
+	if (ft_dllist_is_empty(stack_a) == true)
+		return (0);
 	move = get_next_line(STDIN_FILENO);
 	while (move != NULL)
 	{
