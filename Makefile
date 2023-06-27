@@ -6,7 +6,7 @@
 #    By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 17:10:39 by shinfray          #+#    #+#              #
-#    Updated: 2023/06/27 00:18:20 by shinfray         ###   ########.fr        #
+#    Updated: 2023/06/27 10:18:18 by shinfray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ ${NAME}: ${OBJS} ${LIBFT}
 bonus: ${B_NAME}
 
 ${B_NAME}: ${B_OBJS} ${LIBFT}
-	${CC} ${LDFLAGS} ${B_OBJS} ${LDLIBS} -o $@ -fsanitize=address
+	${CC} ${LDFLAGS} ${B_OBJS} ${LDLIBS} -o $@
 
 ${LIBFT}:
 	${MAKE} -C ${dir ${LIBFT}}
