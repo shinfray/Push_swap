@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 02:14:14 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/27 20:18:19 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:32:32 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct dllist
 {
 	t_dllist_node	*sentinel_node;
 	unsigned int	total_nodes;
-	unsigned int	biggest_number;
 }				t_dllist;
 
 typedef struct stacks
