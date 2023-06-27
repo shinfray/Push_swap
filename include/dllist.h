@@ -6,12 +6,15 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 02:14:14 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 12:01:58 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:18:19 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DLLIST_H
 # define DLLIST_H
+
+# include <stdbool.h>
+# include "libft.h"
 
 typedef struct dllist_node
 {

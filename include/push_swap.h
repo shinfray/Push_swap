@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 02:25:01 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 12:02:03 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:27:29 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define PUSH_SWAP_H
 
 # include <limits.h>
-# include <stdbool.h>
-# include "dllist.h"
-# include "libft.h"
-# include "moves.h"
 # include "sorting.h"
 
 /*

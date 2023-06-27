@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 02:19:40 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 13:12:50 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:27:33 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SORTING_H
 
 # include "dllist.h"
+# include "moves.h"
 
 typedef struct choice
 {

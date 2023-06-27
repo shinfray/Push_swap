@@ -6,11 +6,11 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 01:18:01 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 13:13:57 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:21:39 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "sorting.h"
 
 void		ft_choose_moves_to_b(t_stacks *stacks, t_choice *choice);
 static void	ft_check_steps(t_choice *choice, t_pos *pos);

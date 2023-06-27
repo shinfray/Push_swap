@@ -6,11 +6,11 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:03:44 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 14:48:12 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:12:39 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "moves.h"
 
 void		ft_pa(t_dllist *stack_a, t_dllist *stack_b);
 void		ft_pb(t_dllist *stack_a, t_dllist *stack_b);

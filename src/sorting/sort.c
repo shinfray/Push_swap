@@ -6,11 +6,11 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:50:56 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 12:25:34 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:21:58 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "sorting.h"
 
 void		ft_sort(t_stacks *stacks);
 void		ft_sort_list_up_to_3(t_dllist *stack_a);

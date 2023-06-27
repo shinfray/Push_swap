@@ -6,11 +6,11 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 01:25:30 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 12:13:39 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:21:31 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "sorting.h"
 
 unsigned int	ft_correct_pos_a(t_dllist *stack, int n);
 unsigned int	ft_correct_pos_b(t_dllist *stack, int n);

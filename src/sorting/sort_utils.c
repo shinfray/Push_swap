@@ -6,11 +6,11 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:03:09 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/25 01:12:48 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:21:52 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "sorting.h"
 
 bool			ft_stack_is_sorted(t_dllist *stack_a);
 int				ft_get_min_value(t_dllist *stack);

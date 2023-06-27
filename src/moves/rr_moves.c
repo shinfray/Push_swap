@@ -6,11 +6,11 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:47:33 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/24 01:18:19 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:12:51 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "moves.h"
 
 void		ft_rra(t_dllist *stack_a);
 void		ft_rrb(t_dllist *stack_b);

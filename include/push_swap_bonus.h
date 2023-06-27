@@ -6,15 +6,13 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 02:25:01 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/26 23:56:14 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:28:45 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 
-# include <limits.h>
-# include <stdbool.h>
 # include "push_swap.h"
 # include "get_next_line.h"
 

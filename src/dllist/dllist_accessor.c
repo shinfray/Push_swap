@@ -6,11 +6,11 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:03:39 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/17 14:49:17 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:06:42 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "dllist.h"
 
 t_dllist_node	*ft_dllist_next(t_dllist_node *dllist);
 t_dllist_node	*ft_dllist_prev(t_dllist_node *dllist);
