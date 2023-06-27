@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 10:07:25 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/27 10:07:26 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:06:32 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int	main(int argc, char **argv)
 		exit_status = EXIT_SUCCESS;
 	else
 		exit_status = EXIT_FAILURE;
-	if (exit_status == EXIT_SUCCESS \
-		&& ft_dllist_is_empty(s_stacks.stack_a) == false)
+	if (exit_status == EXIT_SUCCESS)
 		ft_print_result(&s_stacks);
 	ft_free_push_swap(&s_stacks, nums, argv);
 	return (ft_exit_push_swap(exit_status));

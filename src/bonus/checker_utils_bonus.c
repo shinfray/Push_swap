@@ -6,7 +6,7 @@
 /*   By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 23:51:46 by shinfray          #+#    #+#             */
-/*   Updated: 2023/06/27 10:01:51 by shinfray         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:05:14 by shinfray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ int	ft_get_moves(t_dllist *stack_a, t_dllist *stack_b)
 
 void	ft_print_result(t_stacks *stacks)
 {
+	if (ft_dllist_is_empty(stacks->stack_a) == true \
+		&& ft_dllist_is_empty(stacks->stack_b) == true)
+		return ;
 	if (ft_dllist_is_empty(stacks->stack_b) == true \
 		&& ft_stack_is_sorted(stacks->stack_a) == true)
 		ft_putendl_fd("OK", STDOUT_FILENO);
