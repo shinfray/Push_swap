@@ -6,7 +6,7 @@
 #    By: shinfray <shinfray@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 16:37:12 by shinfray          #+#    #+#              #
-#    Updated: 2023/06/27 00:17:49 by shinfray         ###   ########.fr        #
+#    Updated: 2023/06/28 13:18:53 by shinfray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,12 @@
 
 NAME:=	libft.a
 
-BUILD_DIR:= build
 SRCS_DIR:= src
+BUILD_DIR:= build
+INC_DIRS:= include
+
+CFLAGS:= -Wall -Wextra -Werror -Wpedantic
+ARFLAGS:= crs
 
 EXT:=	.c
 
@@ -79,14 +83,7 @@ OBJS:=	${SRCS:%.c=${BUILD_DIR}/%.o}
 
 DEPS:=	${OBJS:.o=.d}
 
-CFLAGS:= -Wall -Wextra -Werror -Wpedantic
-
-ROOT_INC_DIRS:= include
-INC_DIRS:= ${shell find ${ROOT_INC_DIRS} -type d}
-
 CPPFLAGS:= ${addprefix -I,${INC_DIRS}} -MMD -MP
-
-ARFLAGS:= crs
 
 RM:=	rm -rf
 
